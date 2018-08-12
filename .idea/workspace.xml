@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf6e111c-58c3-4e29-ba17-5d7932e64dab" name="Default Changelist" comment="اشتباهی تغییر نداده بودم">
+    <list default="true" id="bf6e111c-58c3-4e29-ba17-5d7932e64dab" name="Default Changelist" comment="nonimportanr changes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/staff/urls.py" afterPath="$PROJECT_DIR$/staff/urls.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -310,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534081438386</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="nonimportanr changes">
+      <created>1534081636972</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1534081636972</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -366,7 +372,8 @@
     <MESSAGE value="some nonimportant changes :)) but in origin master" />
     <MESSAGE value="اشتباهی تغییرش داده بودم" />
     <MESSAGE value="اشتباهی تغییر نداده بودم" />
-    <option name="LAST_COMMIT_MESSAGE" value="اشتباهی تغییر نداده بودم" />
+    <MESSAGE value="nonimportanr changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="nonimportanr changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
