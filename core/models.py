@@ -25,8 +25,8 @@ class Manager(models.Model):
 
 
 class Transaction(models.Model):
-    creator = models.ForeignKey(Customer, on_delete=models.CASCADE, primary_key=True)
-    corroborator = models.ForeignKey(Staff, on_delete=models.SET_NULL)
+    creator = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    corroborator = models.ForeignKey(Staff, on_delete=models.CASCADE)
 
     EXAM_GRE = 'GRE'
     EXAM_TOEFL = 'TFL'
