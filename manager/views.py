@@ -2,8 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-#sallllaaaaaam
 
-def index(request):
+def managerpanel(request):
+    return render(request, 'manager/managerpanel.html', context=None)
 
-    return "manger"

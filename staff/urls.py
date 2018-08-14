@@ -4,6 +4,9 @@ from . import views
 
 #paths
 urlpatterns = [
-    path('workerpanel', views.workerpanel, name='workerpanel'),
+    path('', views.workerpanel, name='workerpanel'),
+    path('transactionfromworker/', views.transactionfromworker, name='transactionfromworker'),
+    path('connectforworker/', views.connectforworker, name='connectforworker'),
+#    path('Mainpage/', views.Mainpage, name='Mainpage'),
 
 ]
