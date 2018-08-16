@@ -1,0 +1,41 @@
+<script type="text/javascript">
+function Confirm(form){
+alert("پیام با موفقیت ارسال شد"); 
+form.submit();
+}
+</script>
+<form action="http://localhost:8000/manager/">
+  <div class="container">
+<h1>ارتباط</h1>
+
+
+    <textarea id=“connectanswer” name=“answer” placeholder="Write something.." style="height:250px"></textarea>
+    
+
+    <p><label for=“کارمندان”><b>کارمندان</b></label>
+<select id=“connectdropdown1”>
+  <option value=“saghaie”>سقایی</option>
+  <option value=“zargarzadeh”>زرگرزاده</option>
+  <option value=“delbari”>دلبری</option>
+<option value=“delbari”>همه کارمندان</option>
+</select>
+
+
+    <p><label for=“کاربران”><b>کاربران</b></label>
+<select id=“connectdropdown2”>
+  <option value=“saghaie”>سقایی</option>
+  <option value=“zargarzadeh”>زرگرزاده</option>
+  <option value=“delbari”>دلبری</option>
+<option value=“delbari”>همه کاربران</option>
+</select>
+
+<p><input type="submit" value="Submit" onClick="Confirm(this.form)"></p>
+
+            <a href=http://localhost:8000/manager/><p> </button><p><button type="submit" class="signupbtn">بازگشت</button><p>
+
+    </div>
+  </div>
+</form>
+
+
+

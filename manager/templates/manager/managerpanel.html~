@@ -20,7 +20,7 @@ form.submit();
     </div>
   </div>
 </form>
-      <a href=http://localhost:8000/manager/signupworker> <p><button type="button" class="cancelbtn">Sign up worker</button><p>
+      <a href=signupworker.htm> <p><button type="button" class="cancelbtn">Sign up worker</button><p>
 
       <a href=accountcirculation.htm> <p><button type="button" class="cancelbtn">دریافت گردش حساب</button><p>
 
