@@ -4,5 +4,12 @@ from . import views
 
 urlpatterns = [
     path('', views.managerpanel, name='managerpanel'),
+    path('signupworker/', views.signupworker, name='signupworker'),
+    path('managerwallet/', views.managerwallet, name='managerwallet'),
+    path('monitorworker/', views.monitorworker, name='monitorworker'),
+    path('sendnotif/', views.sendnotif, name='sendnotif'),
+    path('monitoringuser/', views.monitoringuser, name='monitoringuser'),
+    path('connect/', views.connect, name='connect'),
+    path('monitorworker/workersalary/', views.workersalary, name='workersalary'),
 
 ]

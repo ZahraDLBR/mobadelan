@@ -1,0 +1,18 @@
+<script type="text/javascript">
+function Confirm(form){
+alert("ارسال اعلان با موفقیت انجام شد!"); 
+form.submit();
+}
+</script>
+
+    <h1>Send Notification</h1>
+    <hr>
+<form action="http://localhost:8000/manager/">
+	<div class="container">
+ <label for=“Notification”>Answer</label>
+    <textarea id=“answer” name=“answer” placeholder="Write something.." style="height:250px"></textarea>
+
+<p><input id ="submitBtn" type="submit" value="Submit" onClick="Confirm(this.form)"></p>
+
+</div>    
+</form>
