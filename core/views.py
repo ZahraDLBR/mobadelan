@@ -4,5 +4,5 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("home")
+def Mainpage(request):
+    return render(request, 'core/Mainpage.html', context=None)
