@@ -6,9 +6,12 @@ from django.shortcuts import render
 def managerpanel(request):
     return render(request, 'manager/managerpanel.html', context=None)
 
+def comments(request):
+    return render(request, 'manager/comments.html', context=None)
 
 def signupworker(request):
     return render(request, 'manager/msignupworker.html', context=None)
+
 
 def managerwallet(request):
     return render(request, 'manager/managerwallet.html', context=None)
