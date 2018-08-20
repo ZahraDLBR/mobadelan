@@ -1,3 +1,4 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 
@@ -8,6 +9,10 @@ class CustomerSignUpForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
+        fields = ('last_name', 'first_name', 'email')
+        # widgets = {
+        #     'myfield': forms.TextInput(attrs={'class': 'form-control'}),
+        # }
 
     @transaction.atomic
     def save(self):
@@ -16,3 +21,8 @@ class CustomerSignUpForm(UserCreationForm):
         user.save()
         customer = Customer.objects.create(user=user)
         return user
+
+    def __init__(self, *args, **kwargs):
+        super(CustomerSignUpForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'

@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+
 class User(AbstractUser):
     is_manager = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -11,7 +12,7 @@ class User(AbstractUser):
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     bank_account = models.CharField(max_length=16)
-    phone_number = models.CharField(max_length=11)
+    phone_number = models.CharField(max_length=11, null=True, blank=True)
 
 
 class Staff(models.Model):
@@ -61,3 +62,10 @@ class Transaction(models.Model):
     create_time = models.DateTimeField(auto_now_add=True)
 
     value = models.PositiveIntegerField(default=0)
+
+
+class contact_msg(models.Model):
+    email = models.EmailField()
+    text = models.CharField('message', max_length=255)
+    name = models.CharField(max_length=60)
+    phone = models.CharField(max_length=11)
