@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-<title>Manager Panel</title>
+<title>Account circulation</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
@@ -19,7 +19,7 @@
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="dashboard.html">Manager Panel</a></h1>
+  <h1><a href="dashboard.html">Account circulation</a></h1>
 </div>
 <!--close-Header-part--> 
 
@@ -58,13 +58,18 @@
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
-    <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li class="active"><a href="http://localhost:8000/manager/"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
     <li> <a href="http://localhost:8000/manager/comments/"><i class="icon icon-inbox"></i> <span>Comments</span></a> </li>
-    <li><a href="tables.html"><i class="icon icon-th"></i> <span>Tables</span></a></li>
 
-    <li> <a href="http://localhost:8000/manager/signupworker"><i class="icon icon-th-list"></i> <span>Sign up worker</span> <span class="label label-important"></span></a>
 
-    </li>
+    <li> <a href="http://localhost:8000/manager/signupworker"><i class="icon icon-th-list"></i> <span>Sign up worker</span> <span class="label label-important"></span></a></li>
+	<li><a href="http://localhost:8000/manager/accountcirculation"><i class=""></i> <span>Account Circulation</span></a></li>
+    
+    <li><a href="http://localhost:8000/manager/monitorworker"><i class=""></i> <span>Monitor worker</span></a></li>
+    <li><a href="http://localhost:8000/manager/monitoringuser"><i class=""></i> <span>Monitor users</span></a></li>
+         <li><a href="http://localhost:8000/manager/managerwallet"><i class=""></i> <span>Wallet</span></a></li>
+          <li><a href="http://localhost:8000/manager/sendnotif/"><i class=""></i> <span>Send notification</span></a></li>
+               <li><a href="http://localhost:8000/manager/connect/"><i class=""></i> <span>Contact</span></a></li>
     <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
     <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">5</span></a>
@@ -89,28 +94,7 @@
   </div>
 <!--End-breadcrumbs-->
 
-<!--Action boxes-->
-  <div class="container-fluid">
-    <div class="quick-actions_homepage">
-      <ul class="quick-actions">
-        <li class="bg_lb"> <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important"></span> My Dashboard </a> </li>
-       
-        <li class="bg_ly"> <a href="http://localhost:8000/manager/comments/"> <i class="icon-inbox"></i><span class="label label-success"></span> Comments </a> </li>
-        <li class="bg_lo"> <a href="tables.html"> <i class="icon-th"></i> Tables</a> </li>
 
-        <li class="bg_lo span3"> <a href="form-common.html"> <i class="icon-th-list"></i> Forms</a> </li>
-        <li class="bg_ls"> <a href="buttons.html"> <i class="icon-tint"></i> Buttons</a> </li>
-        <li class="bg_lb"> <a href="interface.html"> <i class="icon-pencil"></i>Elements</a> </li>
-        <li class="bg_lg"> <a href="calendar.html"> <i class="icon-calendar"></i> Calendar</a> </li>
-
-
-      </ul>
-    </div>
-<!--End-Action boxes-->    
-
-    <hr/>
-
-</div>
 
 <!--end-main-container-part-->
 

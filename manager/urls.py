@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.managerpanel, name='managerpanel'),
     path('comments/', views.comments, name='comments'),
     path('signupworker/', views.signupworker, name='signupworker'),
+    path('accountcirculation/', views.accountcirculation, name='accountcirculation'),
     path('managerwallet/', views.managerwallet, name='managerwallet'),
     path('monitorworker/', views.monitorworker, name='monitorworker'),
     path('sendnotif/', views.sendnotif, name='sendnotif'),

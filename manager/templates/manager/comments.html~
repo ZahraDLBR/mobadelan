@@ -67,7 +67,6 @@
     <li><a href="http://localhost:8000/manager/monitoringuser"><i class=""></i> <span>Monitor users</span></a></li>
     <li><a href="http://localhost:8000/manager/managerwallet"><i class=""></i> <span>Wallet</span></a></li>
     <li><a href="http://localhost:8000/manager/sendnotif/"><i class=""></i> <span>Send notification</span></a></li>
-         <li><a href="http://localhost:8000/manager/connect/"><i class=""></i> <span>Contact</span></a></li>
     <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
     <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
     <li class="submenu"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span class="label label-important">5</span></a>

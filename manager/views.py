@@ -10,8 +10,11 @@ def comments(request):
     return render(request, 'manager/comments.html', context=None)
 
 def signupworker(request):
-    return render(request, 'manager/msignupworker.html', context=None)
+    return render(request, 'manager/signupworker.html', context=None)
 
+
+def accountcirculation(request):
+    return render(request, 'manager/accountcirculation.html', context=None)
 
 def managerwallet(request):
     return render(request, 'manager/managerwallet.html', context=None)
