@@ -13,5 +13,11 @@ urlpatterns = [
     path('monitoringuser/', views.monitoringuser, name='monitoringuser'),
     path('connect/', views.connect, name='connect'),
     path('monitorworker/workersalary/', views.workersalary, name='workersalary'),
+    path('monitorworker/monitorworkertransaction/', views.monitorworkertransaction, name='monitorworkertransaction'),
+    path('monitorworker/monitorworkerinformation/', views.monitorworkerinformation, name='monitorworkerinformation'),
+    path('monitoringuser/monitoringusertransaction', views.monitoringusertransaction, name='monitoringusertransaction'),
+    path('monitoringuser/monitoringuserinformation', views.monitoringuserinformation, name='monitoringuserinformation'),
+    path('monitoringuser/monitorworkerlimitaccess', views.monitorworkerlimitaccess, name='monitorworkerlimitaccess'),
+    path('monitoringuser/monitoringuserlimitaccess', views.monitoringuserlimitaccess, name='monitoringuserlimitaccess'),
 
 ]

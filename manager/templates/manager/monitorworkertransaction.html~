@@ -2,18 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Send notification</title>
+<title>Staff transactions</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
 <link rel="stylesheet" href="{% static 'assets/css/bootstrap-responsive.min.css' %}" />
-<link rel="stylesheet" href="{% static 'assets/css/colorpicker.css' %}" />
-<link rel="stylesheet" href="{% static 'assets/css/datepicker.css' %}" />
 <link rel="stylesheet" href="{% static 'assets/css/uniform.css' %}" />
 <link rel="stylesheet" href="{% static 'assets/css/select2.css' %}" />
 <link rel="stylesheet" href="{% static 'assets/css/matrix-style.css' %}" />
 <link rel="stylesheet" href="{% static 'assets/css/matrix-media.css' %}" />
-<link rel="stylesheet" href="{% static 'assets/css/bootstrap-wysihtml5.css' %}" />
 <link href="{% static 'assets/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
@@ -21,7 +18,7 @@
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="dashboard.html">Send notification</a></h1>
+  <h1><a href="dashboard.html">Staff transactions</a></h1>
 </div>
 <!--close-Header-part--> 
 
@@ -43,11 +40,10 @@
   </ul>
 </div>
 
-<!--start-top-serch-->
 
-<!--close-top-serch--> 
 
 <!--sidebar-menu-->
+
 
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-list"></i>Forms</a>
   <ul>
@@ -72,65 +68,102 @@
   </ul>
 </div>
 
-<!--close-left-menu-stats-sidebar-->
+
+
+
 
 <div id="content">
-<div id="content-header">
-  <div id="breadcrumb"> <a href="http://localhost:8000/manager/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Send notification</a> </div>
-  <h1>Send notification</h1>
-</div>
-<div class="container-fluid">
-  <hr>
-
-  <div class="row-fluid">
-    <div class="widget-box">
-      <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-        <h5>Notification</h5>
-      </div>
-      <div class="widget-content">
-        <div class="control-group">
-          <form>
-            <div class="controls">
-              <textarea class="textarea_editor span12"  rows="10" cols="110" placeholder="Enter text ..."></textarea>
-            </div>
-          </form>
-        </div>
-        
-           <p> <div class="form-actions">
-               <a href="http://localhost:8000/manager/"><button type="submit" class="btn btn-success">Submit</button></a>
-               <a href="http://localhost:8000/manager/"><button type="button" class="btn btn-success">Cancle</button></a>
-            </div></p>
-      </div>
- 
-    </div>
-   
-    
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Transactions</a> </div>
+    <h1>Transactions</h1>
   </div>
-</div></div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
 
 
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>Static table with checkboxes in box with padding</h5>
+            <span class="label label-info">Featured</span> </div>
+          <div class="widget-content ">
+            <table class="table table-bordered table-striped with-check">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" id="title-table-checkbox" name="title-table-checkbox" /></th>
+                  <th>Column name</th>
+                  <th>Column name</th>
+                  <th>Column name</th>
+                  <th>Column name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>Row 1</td>
+                  <td>Row 2</td>
+                  <td>Row 3</td>
+                  <td>Row 4</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>Row 1</td>
+                  <td>Row 2</td>
+                  <td>Row 3</td>
+                  <td>Row 4</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>Row 1</td>
+                  <td>Row 2</td>
+                  <td>Row 3</td>
+                  <td>Row 4</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>Row 1</td>
+                  <td>Row 2</td>
+                  <td>Row 3</td>
+                  <td>Row 4</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>Row 1</td>
+                  <td>Row 2</td>
+                  <td>Row 3</td>
+                  <td>Row 4</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>Row 1</td>
+                  <td>Row 2</td>
+                  <td>Row 3</td>
+                  <td>Row 4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!--Footer-part-->
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
 </div>
-<!--end-Footer-part--> 
+<!--end-Footer-part-->
 <script src="{% static 'assets/js/jquery.min.js' %}"></script> 
 <script src="{% static 'assets/js/jquery.ui.custom.js' %}"></script> 
 <script src="{% static 'assets/js/bootstrap.min.js' %}"></script> 
-<script src="{% static 'assets/js/bootstrap-colorpicker.js' %}"></script> 
-<script src="{% static 'assets/js/bootstrap-datepicker.js' %}"></script> 
-<script src="{% static 'assets/js/jquery.toggle.buttons.js' %}"></script> 
-<script src="{% static 'assets/js/masked.js' %}"></script> 
 <script src="{% static 'assets/js/jquery.uniform.js' %}"></script> 
 <script src="{% static 'assets/js/select2.min.js' %}"></script> 
+<script src="{% static 'assets/js/jquery.dataTables.min.js' %}"></script> 
 <script src="{% static 'assets/js/matrix.js' %}"></script> 
-<script src="{% static 'assets/js/matrix.form_common.js' %}"></script> 
-<script src="{% static 'assets/js/wysihtml5-0.3.0.js' %}"></script> 
-<script src="{% static 'assets/js/jquery.peity.min.js' %}"></script> 
-<script src="{% static 'assets/js/bootstrap-wysihtml5.js' %}"></script> 
-<script>
-	$('.textarea_editor').wysihtml5();
-</script>
+<script src="{% static 'assets/js/matrix.tables.js' %}"></script>
 </body>
 </html>

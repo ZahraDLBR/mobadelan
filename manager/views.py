@@ -22,11 +22,30 @@ def managerwallet(request):
 def monitorworker(request):
     return render(request, 'manager/monitorworker.html', context=None)
 
+def monitorworkertransaction(request):
+    return render(request, 'manager/monitorworkertransaction.html', context=None)
+
+
+def monitorworkerinformation(request):
+    return render(request, 'manager/monitorworkerinformation.html', context=None)
+
+def monitorworkerlimitaccess(request):
+    return render(request, 'manager/monitorworkerlimitaccess.html', context=None)
+
 def sendnotif(request):
     return render(request, 'manager/sendnotif.html', context=None)
 
 def monitoringuser(request):
     return render(request, 'manager/monitoringuser.html', context=None)
+
+def monitoringusertransaction(request):
+    return render(request, 'manager/monitoringusertransaction.html', context=None)
+
+def monitoringuserinformation(request):
+    return render(request, 'manager/monitoringuserinformation.html', context=None)
+
+def monitoringuserlimitaccess(request):
+    return render(request, 'manager/monitoringuserlimitaccess.html', context=None)
 
 def connect(request):
     return render(request, 'manager/connect.html', context=None)

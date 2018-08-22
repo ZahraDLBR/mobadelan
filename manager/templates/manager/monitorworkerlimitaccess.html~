@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Send notification</title>
+<title>Limit access</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
@@ -21,7 +21,7 @@
 
 <!--Header-part-->
 <div id="header">
-  <h1><a href="dashboard.html">Send notification</a></h1>
+  <h1><a href="dashboard.html">Limit access</a></h1>
 </div>
 <!--close-Header-part--> 
 
@@ -62,10 +62,9 @@
     <li><a href="http://localhost:8000/manager/monitorworker"><i class=""></i> <span>Monitor worker</span></a></li>
      <li><a href="http://localhost:8000/manager/monitoringuser"><i class=""></i> <span>Monitor users</span></a></li>
      <li><a href="http://localhost:8000/manager/managerwallet"><i class=""></i> <span>Wallet</span></a></li>
-     <li><a href="http://localhost:8000/manager/sendnotif/"><i class=""></i> <span>Send notification</span></a></li>
-          <li><a href="http://localhost:8000/manager/connect/"><i class=""></i> <span>Contact</span></a></li>
-    
-    </li>
+      <li><a href="http://localhost:8000/manager/sendnotif/"><i class=""></i> <span>Send notification</span></a></li>
+           <li><a href="http://localhost:8000/manager/connect/"><i class=""></i> <span>Contact</span></a></li>
+
 
 
 
@@ -76,40 +75,49 @@
 
 <div id="content">
 <div id="content-header">
-  <div id="breadcrumb"> <a href="http://localhost:8000/manager/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Send notification</a> </div>
-  <h1>Send notification</h1>
+  <div id="breadcrumb"> <a href="http://localhost:8000/manager/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="tip-bottom">Limit access</a>  </div>
+  <h1>Limit access</h1>
 </div>
 <div class="container-fluid">
   <hr>
-
   <div class="row-fluid">
-    <div class="widget-box">
-      <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-        <h5>Notification</h5>
-      </div>
-      <div class="widget-content">
-        <div class="control-group">
-          <form>
-            <div class="controls">
-              <textarea class="textarea_editor span12"  rows="10" cols="110" placeholder="Enter text ..."></textarea>
-            </div>
-          </form>
+    <div class="span6">
+      <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>Limit access</h5>
+          
         </div>
-        
-           <p> <div class="form-actions">
-               <a href="http://localhost:8000/manager/"><button type="submit" class="btn btn-success">Submit</button></a>
-               <a href="http://localhost:8000/manager/"><button type="button" class="btn btn-success">Cancle</button></a>
-            </div></p>
-      </div>
- 
-    </div>
-   
+        <div class="widget-content nopadding">
+          <form action="#" method="get" class="form-horizontal">
+            <div class="control-group">
+            <p>Please choose the number of days you want this staff to be banned.</p>
+              <label class="control-label">Number of days</label>
+              <div class="controls">
+                <input id = "monitorworkerlimitdays" type="number" required="required" class="span11" placeholder="days" />
+              </div>
+            </div>
+
+
+
     
+            <div class="form-actions">
+              <a href="http://localhost:8000/manager/"><button type="submit" class="btn btn-success">Submit</button></a>
+              <a href="http://localhost:8000/manager/"><button type="button" class="btn btn-success">Cancle</button></a>
+              
+            </div>
+          </form>         
+          
+
+          
+          
+        </div>
+      </div>
+
+    </div>
+
   </div>
+
 </div></div>
-
-
-</div>
 <!--Footer-part-->
 <div class="row-fluid">
   <div id="footer" class="span12"> 2013 &copy; Matrix Admin. Brought to you by <a href="http://themedesigner.in">Themedesigner.in</a> </div>
