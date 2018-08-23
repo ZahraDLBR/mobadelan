@@ -86,15 +86,24 @@
             <button class="btn btn-success">Staff</button>
             <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
             <ul class="dropdown-menu">
-              <li><a href="#">Zahra</a></li>
-              <li><a href="#">Sahar</a></li>
-              <li><a href="#">Fatemeh</a></li>
+            
+                  {% if staff_information %}
+                 {% for staff in staff_information %}
+             
+             		
+                  <li><a href="#" >{{ staff.user.username }}</a></li>
+    
+                   {% endfor %}
+                   {% endif %}
+
              
              
             </ul>
 
               
           </div></p>
+          
+
     
         
             <p>

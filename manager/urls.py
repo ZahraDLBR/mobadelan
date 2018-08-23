@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.managerpanel, name='managerpanel'),
     path('comments/', views.comments, name='comments'),
-    path('signupworker/', views.signupworker, name='signupworker'),
+    path('signupworker/', views.signupworker.as_view(), name='signupworker'),
     path('accountcirculation/', views.accountcirculation, name='accountcirculation'),
     path('managerwallet/', views.managerwallet, name='managerwallet'),
     path('monitorworker/', views.monitorworker, name='monitorworker'),
@@ -20,5 +20,7 @@ urlpatterns = [
     path('monitoringuser/monitorworkerlimitaccess', views.monitorworkerlimitaccess, name='monitorworkerlimitaccess'),
     path('monitoringuser/monitoringuserlimitaccess', views.monitoringuserlimitaccess, name='monitoringuserlimitaccess'),
     path('seencomment/<int:msg_id>', views.seencomment, name='seencomment'),
+    path('parsedropdown/<int:staff_id>', views.parsedropdown, name='parsedropdown'),
+
 
 ]

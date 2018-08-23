@@ -10,19 +10,21 @@ class User(AbstractUser):
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     bank_account = models.CharField(max_length=16)
     phone_number = models.CharField(max_length=11, null=True, blank=True)
 
 
 class Staff(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    bank_account = models.CharField(max_length=16, default="111111111111111")
+    phone_number = models.CharField(max_length=11, null=True, blank=True)
     # tran = models.ManyToManyField(Quiz, through='TakenQuiz')
     # interests = models.ManyToManyField(Subject, related_name='interested_students')
-
+    salary = models.PositiveIntegerField(default=1000000)
 
 class Manager(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Transaction(models.Model):
