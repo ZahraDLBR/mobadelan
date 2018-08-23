@@ -39,7 +39,7 @@
     </li>
 
 
-    <li class=""><a title="" href="http://localhost:8000/manager/"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+    <li class=""><a title="" href="http://localhost:8000/"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
   </ul>
 </div>
 

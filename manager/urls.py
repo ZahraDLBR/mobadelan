@@ -19,5 +19,6 @@ urlpatterns = [
     path('monitoringuser/monitoringuserinformation', views.monitoringuserinformation, name='monitoringuserinformation'),
     path('monitoringuser/monitorworkerlimitaccess', views.monitorworkerlimitaccess, name='monitorworkerlimitaccess'),
     path('monitoringuser/monitoringuserlimitaccess', views.monitoringuserlimitaccess, name='monitoringuserlimitaccess'),
+    path('seencomment/<int:msg_id>', views.seencomment, name='seencomment'),
 
 ]

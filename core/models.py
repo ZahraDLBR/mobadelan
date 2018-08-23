@@ -64,8 +64,9 @@ class Transaction(models.Model):
     value = models.PositiveIntegerField(default=0)
 
 
-class contact_msg(models.Model):
+class Contact_msg(models.Model):
     email = models.EmailField()
     text = models.CharField('message', max_length=255)
     name = models.CharField(max_length=60)
     phone = models.CharField(max_length=11)
+    seen = models.BooleanField(default=False)

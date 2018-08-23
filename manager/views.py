@@ -1,13 +1,17 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
 
 # Create your views here.
+from core.models import Contact_msg
 
 
 def managerpanel(request):
     return render(request, 'manager/managerpanel.html', context=None)
 
 def comments(request):
-    return render(request, 'manager/comments.html', context=None)
+    latest_comments = Contact_msg.objects.all()
+    context = {'latest_comments': latest_comments}
+    return render(request, 'manager/comments.html', context)
 
 def signupworker(request):
     return render(request, 'manager/signupworker.html', context=None)
@@ -52,3 +56,12 @@ def connect(request):
 
 def workersalary(request):
     return render(request, 'manager/workersalary.html', context=None)
+
+
+def seencomment(request, msg_id):
+    comment = Contact_msg.objects.get(pk=msg_id)
+    comment.seen = True
+    comment.save()
+
+    return redirect('/manager/')
+
