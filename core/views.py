@@ -5,4 +5,4 @@ from django.shortcuts import render
 
 
 def Mainpage(request):
-    return render(request, 'core/Mainpage.html', context=None)
+    return render(request, 'core/home.html', context=None)
