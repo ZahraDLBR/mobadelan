@@ -42,7 +42,7 @@ class StudentSignUpView(CreateView):
         # email.send()
         # return HttpResponse('Please confirm your email address to complete the registration')
         login(self.request, user)
-        return redirect('customer.panel')
+        return redirect('customer:index')
 
 
 def activate(request, uidb64, token):

@@ -4,42 +4,137 @@
 {% endblock %}
 
 {% block content%}
-    <div class="container">
 
 
-        <h2 class="text-center top-space">Frequently Asked Questions</h2>
-		<br>
+    <header id="head" class="secondary"></header>
 
-		<div class="row">
-			<div class="col-sm-6">
-				<h3>Which code editor would you recommend?</h3>
-				<p>I'd highly recommend you <a href="http://www.sublimetext.com/">Sublime Text</a> - a free to try text editor which I'm using daily. Awesome tool!</p>
-			</div>
-			<div class="col-sm-6">
-				<h3>Nice header. Where do I find more images like that one?</h3>
-				<p>
-					Well, there are thousands of stock art galleries, but personally,
-					I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a>
-					and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a></p>
-			</div>
-		</div> <!-- /row -->
+	<!-- container -->
+	<div class="container">
+
+		<ol class="breadcrumb">
+			<li><a href="index.html">Home</a></li>
+			<li class="active">Panel</li>
+		</ol>
 
 		<div class="row">
-			<div class="col-sm-6">
-				<h3>Can I use it to build a site for my client?</h3>
-				<p>
-					Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>,
-					which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work.
-				</p>
-			</div>
-			<div class="col-sm-6">
-				<h3>Can you customize this template for me?</h3>
-				<p>Yes, I can. Please drop me a line to sergey-at-pozhilov.com and describe your needs in details. Please note, my services are not cheap.</p>
-			</div>
-		</div> <!-- /row -->
 
-		<div class="jumbotron top-space">
-			<h4>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere magni ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia perspiciatis at voluptatibus. Libero, aliquid illum possimus numquam fuga.</h4>
-     		<p class="text-right"><a class="btn btn-primary btn-large">Learn more »</a></p>{{ user.usernam }}
+			<!-- Sidebar -->
+			<aside class="col-md-4 sidebar sidebar-left">
+
+
+<ul class="accordion-menu">
+  <li>
+    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> Transactions
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
     </div>
+    <ul class="submenuItems">
+      <li><a href="#">done transactions</a></li>
+      <li><a href="#">waited transactions</a></li>
+      <li><a href="#">failed transactions</a></li>
+      <li><a href="#">all transactions</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> payments
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <ul class="submenuItems">
+      <li><a href="#">Fiction book 1</a></li>
+      <li><a href="#">Fiction book 2</a></li>
+      <li><a href="#">Fiction book 3</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> wallet
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <ul class="submenuItems">
+      <li><a href="#">charge wallet</a></li>
+    </ul>
+  </li>
+
+</ul>
+
+			</aside>
+			<!-- /Sidebar -->
+
+			<!-- Article main content -->
+			<article class="col-md-8 maincontent">
+                <article class="col-xs-12 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">exchange</h1>
+				</header>
+
+
+					<div class="panel panel-default">
+						<div class="panel-body">
+
+							<form>
+
+								<div class="row top-margin">
+									<div class="col-sm-5 ">
+										<label>Enter your value for convert: </label>
+										<input type="text" class="form-control left-margin">
+									</div>
+									<div class="col-lg-4 text-right">
+										<button class="btn btn-action btn-lg my" type="submit">convert</button>
+									</div>
+
+								</div>
+
+
+
+							<br>
+
+							<center><p>
+								<input type="radio" id="$usa"  name="selector" class="btn btn-default btn-lg" role="button">
+   								<label class="btn btn-default btn-lg keder" role="button" for="$usa">$ USA</label>
+
+   								<input type="radio" id="$canada"  name="selector" class="btn btn-default btn-lg" role="button">
+   								<label class="btn btn-default btn-lg keder" role="button" for="$canada">$ Canada</label>
+
+   								<input type="radio" id="$australia" name="selector" class="btn btn-default btn-lg" role="button">
+   								<label class="btn btn-default btn-lg keder" role="button" for="$australia">$ Australia</label>
+   							</p></center>
+
+
+
+							<center><p>
+								<input type="radio" id="pound"  name="selector" class="btn btn-default btn-lg " role="button">
+   								<label class="btn btn-default btn-lg keder" role="button" for="pound">Pound</label>
+
+   								<input type="radio" id="euro"  name="selector" class="btn btn-default btn-lg" role="button">
+   								<label class="btn btn-default btn-lg keder" role="button" for="euro">Euro</label>
+
+   								<input type="radio" id="Swissfranc"  name="selector" class="btn btn-default btn-lg" role="button">
+   								<label class="btn btn-default btn-lg keder" role="button" for="Swissfranc">Swiss franc</label>
+   							</p></center>
+
+   							</form>
+
+<br>
+<hr>
+
+								<div class="row">
+
+							<center><p>  	 <label class="my-label" role="button">MORE INFO </label><a class="btn btn-action btn-lg" role="button">INCREASE WALLET</a></p></center>
+
+						</div>
+					</div>
+
+
+                    </div>
+
+			    </article>
+
+			</article>
+			<!-- /Article -->
+
+		</div>
+	</div>	<!-- /container -->
+
+
+
 {% endblock %}
+
+

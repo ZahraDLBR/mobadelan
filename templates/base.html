@@ -53,7 +53,7 @@
                     {% if user.is_authenticated  %}
 
                         <li><div class="profilemenu">
-	  						<div class="title" onclick="profile_f()"> {{ user.username }} <span class="fa fa-bars"></span>
+	  						<div class="title" onclick= "profile_f()" > {{ user.username }} <span class="fa fa-bars"></span>
 	    						<div class="arrow"></div>
 	  						</div>
   							<div class="profiledropdown">
@@ -62,8 +62,8 @@
     							<p>Sign Out <span class="fa fa-sign-out"></span></p>
 
 							</div>
-						</div>
-					</li>
+						    </div>
+					    </li>
                     {% else %}
                         <li><a class="btn" href="{% url 'login' %}">SIGN IN / SIGN UP</a></li>
                     {% endif %}
