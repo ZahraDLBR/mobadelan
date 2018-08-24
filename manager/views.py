@@ -3,9 +3,10 @@ from django.shortcuts import render, redirect
 from core.models import User, Staff, Customer, Transaction, Manager
 # Create your views here.
 from django.views.generic import CreateView
+from django.contrib.auth.hashers import check_password
 
 from core.models import Contact_msg
-from manager.forms import StaffSignUpForm, salary_form
+from manager.forms import StaffSignUpForm, salary_form, increasecredit_form
 
 
 def managerpanel(request):
@@ -36,10 +37,22 @@ class signupworker(CreateView):
 def accountcirculation(request):
     return render(request, 'manager/accountcirculation.html', context=None)
 
-def managerwallet(request, manager_id):
-    manager_information = Manager.objects.all()
-    manager = Manager.objects.get(pk=request.user)
-    return render(request, 'manager/managerwallet.html', context={'manager':manager})
+def managerwallet(request):
+    manager = Manager.objects.get(pk=10)
+    if request.method == 'POST':
+        form = increasecredit_form(request.POST)
+        if form.is_valid():
+            if check_password(form.cleaned_data['password'], manager.user.password):
+                manager.credit += form.cleaned_data['increase_credit']
+                manager.save()
+        return redirect('/manager/')
+    else:
+        form = increasecredit_form()
+    return render(request, 'manager/managerwallet.html', context={'form':form, 'manager' : manager})
+
+    #manager = Manager.objects.get(pk=10)
+    #return render(request, 'manager/managerwallet.html', context={'manager':manager})
+    #return render(request, 'manager/managerwallet.html', context=None)
 
 def monitorworker(request):
     staff_information = Staff.objects.all()
@@ -107,7 +120,11 @@ def monitoringuserban(request, customer_id):
     return redirect('/manager/monitoringuser/')
 
 def connect(request):
-    return render(request, 'manager/connect.html', context=None)
+    staff_information = Staff.objects.all()
+    user_information = Customer.objects.all()
+    context = {'staff_information': staff_information, 'user_information' : user_information}
+    return render(request, 'manager/connect.html', context)
+    #return render(request, 'manager/connect.html', context=None)
 
 def workersalary(request, staff_id):
     if request.method == 'POST':
@@ -141,3 +158,18 @@ def parsedropdowntouser(request, customer_id):
     user_information = Customer.objects.all()
 
     return render(request, 'manager/monitoringuser.html', context={'selected_user' : selected_user, 'user_information' : user_information})
+
+
+def parsedropdowntocontact(request, reciever_id):
+    reciever = User.objects.get(pk=reciever_id)
+    if reciever.is_staff:
+        reciever = Staff.objects.get(pk=reciever_id)
+        reciever_information = Staff.objects.all()
+
+    else:
+        reciever = Customer.objects.get(pk=reciever_id)
+        reciever_information = Customer.objects.all()
+
+
+    return render(request, 'manager/connect.html', context={'reciever' : reciever, 'reciever_information' : reciever_information})
+#, 'is_staff' : reciever.is_staff, 'is_customer' : reciever.is_customer

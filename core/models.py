@@ -20,6 +20,7 @@ class Customer(models.Model):
 
 
 
+
 class Staff(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
     bank_account = models.CharField(max_length=16, default="111111111111111")
@@ -29,7 +30,7 @@ class Staff(models.Model):
     salary = models.PositiveIntegerField(default=1000000)
 
 class Manager(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     credit = models.PositiveIntegerField(default=1000000)
 
 

@@ -87,26 +87,23 @@
           <h5>Increase credit</h5>
         </div>
         <div class="widget-content nopadding">
-          <form action="#" method="get" class="form-horizontal">
-            <div class="control-group">
-            <p><label class="control-label">Current credit:</label></p>
-              <label class="control-label">Increase credit</label>
-              <div class="controls">
-                <input id = "managerwalletvalue" type="number" required="required" class="span11" placeholder="value" />
-              </div>
-            </div>
-              <div class="control-group">
-              <label class="control-label">Password</label>
-              <div class="controls">
-                <input id="managerwalletpassword" type="password"  class="span11" placeholder="Enter Password"  />
-              </div>
-            </div>
-    
+        
+        
+        		<form action="" method="post">
+        		<p><label class="control-label">Current credit: {{ manager.credit }}</label></p>
+    		<p>{% csrf_token %}</p>
+    		<p>{{ form }}</p>
+    		
+
              <p> <div class="form-actions">
                <a href="http://localhost:8000/manager/"><button type="submit" class="btn btn-success">Submit</button></a>
                <a href="http://localhost:8000/manager/"><button type="button" class="btn btn-success">Cancle</button></a>
             </div></p>
-          </form>         
+          </form> 
+        
+
+        
+         
 
 
           
