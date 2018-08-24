@@ -12,19 +12,27 @@ class User(AbstractUser):
         unique_together = ('email',)
 
 class Customer(models.Model):
+<<<<<<< HEAD
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     bank_account_number = models.CharField(max_length=16)
     phone_number = models.CharField(max_length=11)
+=======
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    bank_account = models.CharField(max_length=16)
+    phone_number = models.CharField(max_length=11, null=True, blank=True)
+>>>>>>> 5e8f8af8e278365b05edd7f10452570acf53d800
 
 
 class Staff(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
+    bank_account = models.CharField(max_length=16, default="111111111111111")
+    phone_number = models.CharField(max_length=11, null=True, blank=True)
     # tran = models.ManyToManyField(Quiz, through='TakenQuiz')
     # interests = models.ManyToManyField(Subject, related_name='interested_students')
-
+    salary = models.PositiveIntegerField(default=1000000)
 
 class Manager(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Transaction(models.Model):
@@ -66,8 +74,9 @@ class Transaction(models.Model):
     value = models.PositiveIntegerField(default=0)
 
 
-class contact_msg(models.Model):
+class Contact_msg(models.Model):
     email = models.EmailField()
     text = models.CharField('message', max_length=255)
     name = models.CharField(max_length=60)
     phone = models.CharField(max_length=11)
+    seen = models.BooleanField(default=False)

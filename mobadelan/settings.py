@@ -41,8 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'crispy_forms',
     # 'phonenumber_field'
+=======
+
+>>>>>>> 5e8f8af8e278365b05edd7f10452570acf53d800
 ]
 
 MIDDLEWARE = [
