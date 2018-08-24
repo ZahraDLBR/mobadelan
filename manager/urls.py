@@ -36,6 +36,13 @@ urlpatterns = [
                           path('monitorworkerban/<int:staff_id>', views.monitorworkerban, name='monitorworkerban'),
                           path('monitoringuserban/<int:customer_id>', views.monitoringuserban,
                                name='monitoringuserban'),
+                          #
+                          path('parsedropdowntocontact/<int:reciever_id>', views.parsedropdowntocontact,
+                               name='parsedropdowntocontact'),
+
+
+
+
 
                       ], 'manager'), namespace='manager') )
 

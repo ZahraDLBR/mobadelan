@@ -120,7 +120,11 @@ def monitoringuserban(request, customer_id):
     return redirect('/manager/monitoringuser/')
 
 def connect(request):
-    return render(request, 'manager/connect.html', context=None)
+    staff_information = Staff.objects.all()
+    user_information = Customer.objects.all()
+    context = {'staff_information': staff_information, 'user_information' : user_information}
+    return render(request, 'manager/connect.html', context)
+    #return render(request, 'manager/connect.html', context=None)
 
 def workersalary(request, staff_id):
     if request.method == 'POST':
@@ -154,3 +158,18 @@ def parsedropdowntouser(request, customer_id):
     user_information = Customer.objects.all()
 
     return render(request, 'manager/monitoringuser.html', context={'selected_user' : selected_user, 'user_information' : user_information})
+
+
+def parsedropdowntocontact(request, reciever_id):
+    reciever = User.objects.get(pk=reciever_id)
+    if reciever.is_staff:
+        reciever = Staff.objects.get(pk=reciever_id)
+        reciever_information = Staff.objects.all()
+
+    else:
+        reciever = Customer.objects.get(pk=reciever_id)
+        reciever_information = Customer.objects.all()
+
+
+    return render(request, 'manager/connect.html', context={'reciever' : reciever, 'reciever_information' : reciever_information})
+#, 'is_staff' : reciever.is_staff, 'is_customer' : reciever.is_customer
