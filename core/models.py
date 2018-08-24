@@ -30,6 +30,7 @@ class Staff(models.Model):
 
 class Manager(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    credit = models.PositiveIntegerField(default=1000000)
 
 
 class Transaction(models.Model):

@@ -25,3 +25,7 @@ class StaffSignUpForm(UserCreationForm):
         user.save()
         staff = Staff.objects.create(user=user)
         return user
+
+
+class salary_form(forms.Form):
+    salary = forms.IntegerField()

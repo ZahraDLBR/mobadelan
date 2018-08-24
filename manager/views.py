@@ -1,11 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from core.models import User, Staff, Customer
+from core.models import User, Staff, Customer, Transaction, Manager
 # Create your views here.
 from django.views.generic import CreateView
 
 from core.models import Contact_msg
-from manager.forms import StaffSignUpForm
+from manager.forms import StaffSignUpForm, salary_form
 
 
 def managerpanel(request):
@@ -36,8 +36,10 @@ class signupworker(CreateView):
 def accountcirculation(request):
     return render(request, 'manager/accountcirculation.html', context=None)
 
-def managerwallet(request):
-    return render(request, 'manager/managerwallet.html', context=None)
+def managerwallet(request, manager_id):
+    manager_information = Manager.objects.all()
+    manager = Manager.objects.get(pk=request.user)
+    return render(request, 'manager/managerwallet.html', context={'manager':manager})
 
 def monitorworker(request):
     staff_information = Staff.objects.all()
@@ -45,19 +47,30 @@ def monitorworker(request):
     return render(request, 'manager/monitorworker.html', context)
     #return render(request, 'manager/monitorworker.html', context=None)
 
-def monitorworkertransaction(request):
-    return render(request, 'manager/monitorworkertransaction.html', context=None)
+def monitorworkertransaction(request, staff_id):
+    staff_information = Staff.objects.all()
+    staff = Staff.objects.get(pk=staff_id)
+    transaction_information = Transaction.objects.all()
+    return render(request, 'manager/monitorworkertransaction.html', context={'selected_staff' : staff, 'staff_information' : staff_information, 'transaction_information' : transaction_information})
+    #return render(request, 'manager/monitorworkertransaction.html', context=None)
 
 
 def monitorworkerinformation(request, staff_id):
     staff_information = Staff.objects.all()
     staff = Staff.objects.get(pk=staff_id)
-    #context = {'staff_information': staff_information, 'selected_staff': staff}
     return render(request, 'manager/monitorworkerinformation.html', context={'selected_staff' : staff, 'staff_information' : staff_information})
     #return render(request, 'manager/monitorworkerinformation.html', context=None)
 
 def monitorworkerlimitaccess(request):
     return render(request, 'manager/monitorworkerlimitaccess.html', context=None)
+
+def monitorworkerban(request, staff_id):
+    staff = Staff.objects.get(pk=staff_id)
+    staff.user.is_active = False
+    staff.user.save()
+
+    return redirect('/manager/monitorworker/')
+    #return render(request, 'manager/monitorworker.html', context=None)
 
 def sendnotif(request):
     return render(request, 'manager/sendnotif.html', context=None)
@@ -68,8 +81,12 @@ def monitoringuser(request):
     return render(request, 'manager/monitoringuser.html', context)
     #return render(request, 'manager/monitoringuser.html', context=None)
 
-def monitoringusertransaction(request):
-    return render(request, 'manager/monitoringusertransaction.html', context=None)
+def monitoringusertransaction(request, customer_id):
+    user_information = Customer.objects.all()
+    selected_user = Customer.objects.get(pk=customer_id)
+    transaction_information = Transaction.objects.all()
+    return render(request, 'manager/monitoringusertransaction.html', context={'selected_user' : selected_user, 'user_information' : user_information, 'transaction_information' : transaction_information})
+    #return render(request, 'manager/monitoringusertransaction.html', context=None)
 
 def monitoringuserinformation(request, customer_id):
     selected_user = Customer.objects.get(pk=customer_id)
@@ -82,11 +99,28 @@ def monitoringuserinformation(request, customer_id):
 def monitoringuserlimitaccess(request):
     return render(request, 'manager/monitoringuserlimitaccess.html', context=None)
 
+def monitoringuserban(request, customer_id):
+    selected_user = Customer.objects.get(pk=customer_id)
+    selected_user.user.is_active = False
+    selected_user.user.save()
+
+    return redirect('/manager/monitoringuser/')
+
 def connect(request):
     return render(request, 'manager/connect.html', context=None)
 
-def workersalary(request):
-    return render(request, 'manager/workersalary.html', context=None)
+def workersalary(request, staff_id):
+    if request.method == 'POST':
+        form = salary_form(request.POST)
+        if form.is_valid():
+            staff = Staff.objects.get(pk=staff_id)
+            staff.salary = form.cleaned_data['salary']
+            staff.save()
+        return redirect('/manager/')
+    else:
+        form = salary_form()
+    return render(request, 'manager/workersalary.html', context={'form':form})
+    #return render(request, 'manager/workersalary.html', context=None)
 
 
 def seencomment(request, msg_id):
