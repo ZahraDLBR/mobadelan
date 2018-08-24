@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from core.models import User, Staff
+from core.models import User, Staff, Customer
 # Create your views here.
 from django.views.generic import CreateView
 
@@ -49,10 +49,11 @@ def monitorworkertransaction(request):
     return render(request, 'manager/monitorworkertransaction.html', context=None)
 
 
-def monitorworkerinformation(request):
+def monitorworkerinformation(request, staff_id):
     staff_information = Staff.objects.all()
-    context = {'staff_information': staff_information}
-    return render(request, 'manager/monitorworkerinformation.html', context)
+    staff = Staff.objects.get(pk=staff_id)
+    #context = {'staff_information': staff_information, 'selected_staff': staff}
+    return render(request, 'manager/monitorworkerinformation.html', context={'selected_staff' : staff, 'staff_information' : staff_information})
     #return render(request, 'manager/monitorworkerinformation.html', context=None)
 
 def monitorworkerlimitaccess(request):
@@ -62,13 +63,21 @@ def sendnotif(request):
     return render(request, 'manager/sendnotif.html', context=None)
 
 def monitoringuser(request):
-    return render(request, 'manager/monitoringuser.html', context=None)
+    user_information = Customer.objects.all()
+    context = {'user_information': user_information}
+    return render(request, 'manager/monitoringuser.html', context)
+    #return render(request, 'manager/monitoringuser.html', context=None)
 
 def monitoringusertransaction(request):
     return render(request, 'manager/monitoringusertransaction.html', context=None)
 
-def monitoringuserinformation(request):
-    return render(request, 'manager/monitoringuserinformation.html', context=None)
+def monitoringuserinformation(request, customer_id):
+    selected_user = Customer.objects.get(pk=customer_id)
+    user_information = Customer.objects.all()
+
+    return render(request, 'manager/monitoringuserinformation.html', context={'selected_user' : selected_user, 'user_information' : user_information})
+
+    #return render(request, 'manager/monitoringuserinformation.html', context=None)
 
 def monitoringuserlimitaccess(request):
     return render(request, 'manager/monitoringuserlimitaccess.html', context=None)
@@ -87,10 +96,14 @@ def seencomment(request, msg_id):
 
     return redirect('/manager/')
 
-def parsedropdown(request, staff_id):
-    comment = Contact_msg.objects.get(pk=staff_id)
-    comment.seen = True
-    comment.save()
+def parsedropdowntostaff(request, staff_id):
+    staff = Staff.objects.get(pk=staff_id)
+    staff_information = Staff.objects.all()
 
-    return redirect('/manager/monitorworker')
+    return render(request, 'manager/monitorworker.html', context={'selected_staff' : staff, 'staff_information' : staff_information})
 
+def parsedropdowntouser(request, customer_id):
+    selected_user = Customer.objects.get(pk=customer_id)
+    user_information = Customer.objects.all()
+
+    return render(request, 'manager/monitoringuser.html', context={'selected_user' : selected_user, 'user_information' : user_information})

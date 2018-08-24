@@ -109,19 +109,15 @@
               
               
                 <tr class="">
-                 {% if staff_information %}
-                 {% for staff in staff_information %}
-                 {% if staff.user.username == 'saharrz' %}
-                  <td>{{ staff.user.first_name }}</td>
-                  <td>{{ staff.user.last_name }}</td>
-                  <td>{{ staff.user.username }}</td>
-                  <td> {{ staff.user.email }}</td>
-                  <td>{{ staff.bank_account }}</td>
-                  <td>{{ staff.phone_number }}</td>
-                  <td>{{ staff.salary }}</td>
-                   {% endif %}
-                   {% endfor %}
-                   {% endif %}
+
+                  <td>{{ selected_staff.user.first_name }}</td>
+                  <td>{{ selected_staff.user.last_name }}</td>
+                  <td>{{ selected_staff.user.username }}</td>
+                  <td> {{ selected_staff.user.email }}</td>
+                  <td>{{ selected_staff.bank_account }}</td>
+                  <td>{{ selected_staff.phone_number }}</td>
+                  <td>{{ selected_staff.salary }}</td>
+
                 </tr>
 
 

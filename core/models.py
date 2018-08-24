@@ -10,7 +10,7 @@ class User(AbstractUser):
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key = True)
     bank_account = models.CharField(max_length=16)
     phone_number = models.CharField(max_length=11, null=True, blank=True)
 

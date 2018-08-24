@@ -111,11 +111,11 @@
                 <tr class="">
                  {% if staff_information %}
                  {% for staff in staff_information %}
-                 {% if staff.username == 'saharrz' %}
-                  <td>{{ staff.first_name }}</td>
-                  <td>{{ staff.last_name }}</td>
-                  <td>{{ staff.username }}</td>
-                  <td> {{ staff.email }}</td>
+                 {% if staff.user.username == 'saharrz' %}
+                  <td>{{ staff.user.first_name }}</td>
+                  <td>{{ staff.user.last_name }}</td>
+                  <td>{{ staff.user.username }}</td>
+                  <td> {{ staff.user.email }}</td>
                   <td>{{ staff.bank_account }}</td>
                   <td>{{ staff.phone_number }}</td>
                   <td>{{ staff.salary }}</td>
