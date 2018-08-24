@@ -96,7 +96,7 @@
                  {% for customer in user_information %}
              
              		
-                  <li><a href="{% url 'parsedropdowntouser' customer.user_id %}"  >{{ customer.user.username }}</a></li>
+                  <li><a href="{% url 'manager:parsedropdowntouser' customer.user_id %}"  >{{ customer.user.username }}</a></li>
     
                    {% endfor %}
                    {% endif %}
@@ -112,10 +112,10 @@
             <p>
               <p></p>
               {% if selected_user %}
-              <p><a href="{% url 'monitoringuserinformation' selected_user.user_id %}"><button class="btn btn-primary">Information</button></a></p>
-             <p>  <a href="{% url 'monitoringuserban' selected_user.user_id %}" ><button class="btn btn-success">Ban access</button></a></p>
+              <p><a href="{% url 'manager:monitoringuserinformation' selected_user.user_id %}"><button class="btn btn-primary">Information</button></a></p>
+             <p>  <a href="{% url 'manager:monitoringuserban' selected_user.user_id %}" ><button class="btn btn-success">Ban access</button></a></p>
               <p><a href="http://localhost:8000/manager/monitoringuser/monitoringuserlimitaccess"><button class="btn btn-warning">limit access</button></a></p>
-              <p><a href="{% url 'monitoringusertransaction' selected_user.user_id %}"><button class="btn btn-danger">Transactions</button></p>
+              <p><a href="{% url 'manager:monitoringusertransaction' selected_user.user_id %}"><button class="btn btn-danger">Transactions</button></p>
 				 {% endif %}
               
             </p>

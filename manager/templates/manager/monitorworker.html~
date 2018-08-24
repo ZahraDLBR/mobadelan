@@ -98,7 +98,7 @@
                  {% for staff in staff_information %}
              
              		
-                  <li><a href="{% url 'parsedropdowntostaff' staff.user_id %}"  >{{ staff.user.username }}</a></li>
+                  <li><a href="{% url 'manager:parsedropdowntostaff' staff.user_id %}"  >{{ staff.user.username }}</a></li>
     
                    {% endfor %}
                    {% endif %}
@@ -116,11 +116,11 @@
             <p>
               <p></p>
               {% if selected_staff %}
-              <p><a href="{% url 'monitorworkerinformation' selected_staff.user_id %}"><button class="btn btn-primary">Information</button></a></p>
-              <p><a href="{% url 'workersalary' selected_staff.user_id %}"> <button class="btn btn-info">Specify salary</button></a></p>
-             <p>  <a href="{% url 'monitorworkerban' selected_staff.user_id %}" ><button class="btn btn-success">Ban access</button></a></p>
+              <p><a href="{% url 'manager:monitorworkerinformation' selected_staff.user_id %}"><button class="btn btn-primary">Information</button></a></p>
+              <p><a href="{% url 'manager:workersalary' selected_staff.user_id %}"> <button class="btn btn-info">Specify salary</button></a></p>
+             <p>  <a href="{% url 'manager:monitorworkerban' selected_staff.user_id %}" ><button class="btn btn-success">Ban access</button></a></p>
               <p><a href="http://localhost:8000/manager/monitoringuser/monitorworkerlimitaccess"><button class="btn btn-warning">limit access</button></a></p>
-              <p><a href="{% url 'monitorworkertransaction' selected_staff.user_id %}"><button class="btn btn-danger">Transactions</button></a></p>
+              <p><a href="{% url 'manager:monitorworkertransaction' selected_staff.user_id %}"><button class="btn btn-danger">Transactions</button></a></p>
               {% endif %}
 
               

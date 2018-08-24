@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Comments</title>
@@ -81,20 +80,21 @@
           </div>
           <div class="widget-content nopadding">
             <ul class="recent-posts">
-            
+
             {% if latest_comments %}
     				<ul>
     					{% for comment in latest_comments %}
-        					{%if comment.seen==False}
+        					{% if comment.seen == False %}
         		 		<li>
                 		<div class="user-thumb"> <img width="40" height="40" alt="User" src="{% static 'assets/img/demo/av1.jpg' %}"> </div>
                			<div class="article-post">
-                		<div class="fr"> <a href="#" class="btn btn-success btn-mini">Answer</a> <a href="#" class="btn btn-danger btn-mini">Seen</a></div>
+                		<div class="fr"> <a href="#" class="btn btn-success btn-mini">Answer</a> <a href="{% url 'seencomment' comment.id %}" class="btn btn-danger btn-mini">Seen</a></div>
                   		<span class="user-info"> By: {{ comment.name}} / Email: {{ comment.email}} / Phone number: {{ comment.phone}} </span>
                   		<p><a href="#">{{ comment.text}}</a> </p>
                			 </div>
              		</li>
-             		{%endif}
+                            {% endif %}
+
     		   			{% endfor %}
     				</ul>
 				{% else %}
