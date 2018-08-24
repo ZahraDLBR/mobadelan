@@ -86,22 +86,16 @@
           <h5>Salary</h5>
         </div>
         <div class="widget-content nopadding">
-          <form action="#" method="get" class="form-horizontal">
-            <div class="control-group">
-              <label class="control-label">Salary</label>
-              <div class="controls">
-                <input id = "salary" type="number" required="required" class="span11" placeholder="salary" />
-              </div>
-            </div>
-
-
-
-    
-            <div class="form-actions">
-              <a href="http://localhost:8000/manager/"><button type="submit" class="btn btn-success">Submit</button></a>
+        
+        <form action="" method="post">
+    		{% csrf_token %}
+    		<p>{{ form }}</p>
+                <p><div class="form-actions">
+              <button type="submit" class="btn btn-success">Submit</button>
               <a href="http://localhost:8000/manager/"><button type="button" class="btn btn-success">Cancle</button></a>
-            </div>
-          </form>         
+            </div></p>
+</form>
+         
           
 
           

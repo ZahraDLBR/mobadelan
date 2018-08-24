@@ -92,55 +92,30 @@
               <thead>
                 <tr>
                   <th><input type="checkbox" id="title-table-checkbox" name="title-table-checkbox" /></th>
-                  <th>Column name</th>
-                  <th>Column name</th>
-                  <th>Column name</th>
-                  <th>Column name</th>
+                  <th>Creator</th>
+                  <th>Type</th>
+                  <th>Create time</th>
+                  <th>Value</th>
+                  <th>State</th>
                 </tr>
               </thead>
               <tbody>
+
+           
+              
                 <tr>
+                {% for transaction in transaction_information %}
+                {% if transaction.corroborator == selected_staff %}
                   <td><input type="checkbox" /></td>
-                  <td>Row 1</td>
-                  <td>Row 2</td>
-                  <td>Row 3</td>
-                  <td>Row 4</td>
+                  <td>{{ transaction.creator }}</td>
+                  <td>{{ transaction.transactions_type }}</td>
+                  <td>{{ transaction.create_time }}</td>
+                  <td>{{ transaction.value }}</td>
+                  <td></td>
+                 {% endif %}
+                {% endfor %}
                 </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Row 1</td>
-                  <td>Row 2</td>
-                  <td>Row 3</td>
-                  <td>Row 4</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Row 1</td>
-                  <td>Row 2</td>
-                  <td>Row 3</td>
-                  <td>Row 4</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Row 1</td>
-                  <td>Row 2</td>
-                  <td>Row 3</td>
-                  <td>Row 4</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Row 1</td>
-                  <td>Row 2</td>
-                  <td>Row 3</td>
-                  <td>Row 4</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>Row 1</td>
-                  <td>Row 2</td>
-                  <td>Row 3</td>
-                  <td>Row 4</td>
-                </tr>
+
               </tbody>
             </table>
           </div>
