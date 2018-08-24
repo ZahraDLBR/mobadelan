@@ -1,3 +1,97 @@
+ * {
+  margin: 0;
+  padding: 0;
+
+}
+
+input[type=radio]{display:none;}
+
+input[type="radio"]:checked+label{ background:#232323; color:#fff } 
+
+
+.my{
+	margin-top:14PX;
+
+}
+
+.left_margin:{
+	margin-left: 16px;
+}
+
+
+.keder{
+	background: #FFE5CC
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.accordion-menu {
+  width: 100%;
+  max-width: 350px;
+  margin: 60px auto 20px;
+  background: #191919;
+  border-radius: 4px;
+}
+.accordion-menu li.open .dropdownlink {
+  color: #FF9B22;
+  .fa-chevron-down {
+    transform: rotate(180deg);
+  }
+}
+.accordion-menu li:last-child .dropdownlink {
+  border-bottom: 0;
+}
+.dropdownlink {
+  cursor: pointer;
+  display: block;
+  padding: 15px 15px 15px 45px;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  color: #fff;
+  position: relative;
+  transition: all 0.4s ease-out;
+  i {
+    position: absolute;
+    top: 17px;
+    left: 16px;
+  }
+  .fa-chevron-down {
+    right: 12px;
+    left: auto;
+  }
+}
+
+.submenuItems {
+  display: none;
+  background: #fff;
+  li {
+    border-bottom: 1px solid #B6B6B6;
+  }
+}
+
+.submenuItems a {
+  
+  display: block;
+  color: #727272;
+  padding: 12px 12px 12px 45px;
+  transition: all 0.4s ease-out;
+  
+}
+
+.submenuItems a:hover {
+    background-color: #FFEFD7;
+    color: #fff;
+  }
+
+
+
+
 /* Header */
 #head { background:#181015 url( ../images/bg_header.jpg) no-repeat; background-size: cover; min-height:520px; text-align: center; padding-top:240px; color:white; font-family:"Open sans", Helvetica, Arial; font-weight:300; }
 #head.secondary { height:100px; min-height: 100px; padding-top:0px; }
@@ -79,4 +173,23 @@ img.pull-left { margin-right: 10px; }
 		.footer2 p { margin: 0; }
 
 	.widget-simplenav { margin-left:-5px; }		
-	.widget-simplenav a{ margin:0 5px; }		
+	.widget-simplenav a{ margin:0 5px; }	
+
+
+
+
+
+/* profile menu*/
+
+
+@import "https://fonts.googleapis.com/css?family=Montserrat";
+
+.profilemenu{width: 120% ; height: 50%; margin-left: 10%; cursor:pointer padding:12%}
+.title{width:100%;box-sizing:border-box; margin-right:10px; background:#fff;padding:14px;border-radius:4px;position:relative;box-shadow:0 0 40px -10px #000;color:#505050}
+span{float:right;font-size:18px!important}
+.profiledropdown{width:100%;background:#fff;border-radius:4px;box-shadow:0 0 40px -10px #000;color:#505050;margin-top:24px;max-height:0;overflow:hidden;transition:all .5s}
+.down{max-height:150px}
+.arrow{border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #fff;position:absolute;right:20px;bottom:-24px;display:none}
+.arrow.gone{display:block}
+p{padding:15px 14px;margin:0;transition:all .1s}
+.profilemenu p:hover{background:coral;-webkit-transform:scale(1.05);color:rgba(255,255,255,0.8);box-shadow:0 0 30px -10px #000}	

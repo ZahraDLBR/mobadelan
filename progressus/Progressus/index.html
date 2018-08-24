@@ -38,15 +38,19 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="#">Home</a></li>
 					<li><a href="about.html">About</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.html">Left Sidebar</a></li>
-							<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
-						</ul>
-					</li>
 					<li><a href="contact.html">Contact</a></li>
-					<li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+					<li><div class="profilemenu">
+	  						<div class="title" onclick="profile_f()">John Doe wallet value <span class="fa fa-bars"></span>
+	    						<div class="arrow"></div>
+	  						</div>
+  							<div class="profiledropdown">
+    							<p>Inbox <span class="fa fa-inbox"></span></p>
+    							<p>Settings <span class="fa fa-gear"></span></p>
+    							<p>Sign Out <span class="fa fa-sign-out"></span></p>
+ 
+							</div>
+						</div>
+					</li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -56,6 +60,7 @@
 	<!-- Header -->
 	<header id="head">
 		<div class="container">
+			
 			<div class="row">
 				<h1 class="lead">AWESOME, CUSTOMIZABLE, FREE</h1>
 				<p class="tagline">PROGRESSUS: free business bootstrap template by <a href="http://www.gettemplate.com/?utm_source=progressus&amp;utm_medium=template&amp;utm_campaign=progressus">GetTemplate</a></p>

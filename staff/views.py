@@ -14,7 +14,7 @@ def connectforworker(request):
     return render(request, 'staff/connectforworker.html', context=None)
 #def
 #def Mainpage(request):
-#    return render(request, 'staff/Mainpage.html', context=None)
+#    return render(request, 'staff/home.html', context=None)
 
 def detail(request):
     return None

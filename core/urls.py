@@ -4,6 +4,6 @@ import customer
 from . import views
 
 urlpatterns = [
-    path('', views.Mainpage, name='Mainpage'),
+    path('', views.Mainpage, name='home'),
 
 ]

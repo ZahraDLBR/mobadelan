@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    # 'phonenumber_field'
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,9 @@ LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.smtp2go.com'
+EMAIL_HOST_USER = 'qweszxc21@gmail.com'
+EMAIL_HOST_PASSWORD = 'zahra@mobadelan'
+EMAIL_PORT = 587

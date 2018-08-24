@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
+# from phonenumber_field.modelfields import PhoneNumberField
 
 
 class User(AbstractUser):
@@ -8,11 +8,13 @@ class User(AbstractUser):
     is_staff = models.BooleanField(default=False)
     is_customer = models.BooleanField(default=False)
 
+    class Meta(object):
+        unique_together = ('email',)
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    bank_account = models.CharField(max_length=16)
-    phone_number = models.CharField(max_length=11, null=True, blank=True)
+    bank_account_number = models.CharField(max_length=16)
+    phone_number = models.CharField(max_length=11)
 
 
 class Staff(models.Model):
