@@ -29,3 +29,7 @@ class StaffSignUpForm(UserCreationForm):
 
 class salary_form(forms.Form):
     salary = forms.IntegerField()
+
+class increasecredit_form(forms.Form):
+    increase_credit = forms.IntegerField()
+    password = forms.CharField(label="password", strip=False, widget=forms.PasswordInput)

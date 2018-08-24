@@ -3,9 +3,10 @@ from django.shortcuts import render, redirect
 from core.models import User, Staff, Customer, Transaction, Manager
 # Create your views here.
 from django.views.generic import CreateView
+from django.contrib.auth.hashers import check_password
 
 from core.models import Contact_msg
-from manager.forms import StaffSignUpForm, salary_form
+from manager.forms import StaffSignUpForm, salary_form, increasecredit_form
 
 
 def managerpanel(request):
@@ -36,10 +37,22 @@ class signupworker(CreateView):
 def accountcirculation(request):
     return render(request, 'manager/accountcirculation.html', context=None)
 
-def managerwallet(request, manager_id):
-    manager_information = Manager.objects.all()
-    manager = Manager.objects.get(pk=request.user)
-    return render(request, 'manager/managerwallet.html', context={'manager':manager})
+def managerwallet(request):
+    manager = Manager.objects.get(pk=10)
+    if request.method == 'POST':
+        form = increasecredit_form(request.POST)
+        if form.is_valid():
+            if check_password(form.cleaned_data['password'], manager.user.password):
+                manager.credit += form.cleaned_data['increase_credit']
+                manager.save()
+        return redirect('/manager/')
+    else:
+        form = increasecredit_form()
+    return render(request, 'manager/managerwallet.html', context={'form':form, 'manager' : manager})
+
+    #manager = Manager.objects.get(pk=10)
+    #return render(request, 'manager/managerwallet.html', context={'manager':manager})
+    #return render(request, 'manager/managerwallet.html', context=None)
 
 def monitorworker(request):
     staff_information = Staff.objects.all()
