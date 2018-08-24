@@ -1,12 +1,20 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
+
+
 #paths
+
 urlpatterns = [
-    path('', views.workerpanel, name='workerpanel'),
-    path('transactionfromworker/', views.transactionfromworker, name='transactionfromworker'),
-    path('connectforworker/', views.connectforworker, name='connectforworker'),
-#    path('Mainpage/', views.Mainpage, name='Mainpage'),
+
+    path('', include(([
+                          path('', views.workerpanel, name='workerpanel'),
+                          path('transactionfromworker/', views.transactionfromworker, name='transactionfromworker'),
+                          path('connectforworker/', views.connectforworker, name='connectforworker'),
+
+                           ], 'staff'), namespace='staff')),
+
+
 
 ]

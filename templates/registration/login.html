@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Signup
+    login
 {% endblock %}
 
 {#{% load crispy_forms_tags %}#}
@@ -30,21 +30,31 @@
 						<div class="panel-body">
 							<h3 class="thin text-center">Sign in to your account</h3>
 							<p class="text-center text-muted">Lorem ipsum dolor sit amet, <a href="{% url 'customer:signup' %}">Register</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
-							<hr>
-							
-							<form>
-								<div class="top-margin">
-									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
-								</div>
-								<div class="top-margin">
-									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control">
-								</div>
 
-								<hr>
+                            <hr>
 
-								<div class="row">
+                        {% if form.non_field_errors %}
+{#    <div class="alert alert-danger alert-dismissible fade show" role="alert">#}
+      {% for error in form.non_field_errors %}
+        <p{% if forloop.last %} class="mb-0"{% endif %}>{{ error }}</p>
+      {% endfor %}
+
+    </div>
+  {% endif %}
+
+                            <form method="post" novalidate>
+                               {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ next }}">
+                                {% for field in form %}
+                                  <p>
+                                    {{ field.label_tag }}<br>
+                                    {{ field}}
+
+                                  </p>
+                                {% endfor %}
+                                <hr>
+
+                                <div class="row">
 									<div class="col-lg-8">
 										<b><a href="">Forgot password?</a></b>
 									</div>
@@ -52,7 +62,28 @@
 										<button class="btn btn-action" type="submit">Sign in</button>
 									</div>
 								</div>
-							</form>
+                            </form>
+{#							<form>#}
+{#								<div class="top-margin">#}
+{#									<label>Username/Email <span class="text-danger">*</span></label>#}
+{#									<input type="text" class="form-control">#}
+{#								</div>#}
+{#								<div class="top-margin">#}
+{#									<label>Password <span class="text-danger">*</span></label>#}
+{#									<input type="password" class="form-control">#}
+{#								</div>#}
+{##}
+{#								<hr>#}
+{##}
+{#								<div class="row">#}
+{#									<div class="col-lg-8">#}
+{#										<b><a href="">Forgot password?</a></b>#}
+{#									</div>#}
+{#									<div class="col-lg-4 text-right">#}
+{#										<button class="btn btn-action" type="submit">Sign in</button>#}
+{#									</div>#}
+{#								</div>#}
+{#							</form>#}
 						</div>
 					</div>
 

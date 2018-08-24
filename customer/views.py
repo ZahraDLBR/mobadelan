@@ -61,7 +61,5 @@ def activate(request, uidb64, token):
         return HttpResponse('Activation link is invalid!')
 
 def index(request):
-    context = {
-        'name': "zahra",
-    }
-    return render(request, 'customer/index.html', context)
+
+    return render(request, 'customer/index.html', context={'user': request.user})
