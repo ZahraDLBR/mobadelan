@@ -16,6 +16,7 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     bank_account = models.CharField(max_length=16)
     phone_number = models.CharField(max_length=11)
+    credit = models.PositiveIntegerField(default=200000)
 
 
 
@@ -36,7 +37,7 @@ class Manager(models.Model):
 
 class Transaction(models.Model):
     creator = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    corroborator = models.ForeignKey(Staff, on_delete=models.CASCADE)
+    corroborator = models.ForeignKey(Staff, on_delete=models.CASCADE, null=True)
 
     EXAM_GRE = 'GRE'
     EXAM_TOEFL = 'TFL'
@@ -68,9 +69,25 @@ class Transaction(models.Model):
         default=None,
     )
 
+    WAIT = 'W'
+    DONE = 'D'
+    FAIL = 'F'
+
+    STATE_CHOICES = (
+        (WAIT, 'wait'),
+        (DONE,'done'),
+        (FAIL, 'fail')
+    )
+    state = models.CharField(
+        max_length=1,
+        choices=STATE_CHOICES,
+        default='w'
+    )
+
     create_time = models.DateTimeField(auto_now_add=True)
 
     value = models.PositiveIntegerField(default=0)
+    is_invalid = models.BooleanField(default=False)
 
 
 class Contact_msg(models.Model):
@@ -78,4 +95,14 @@ class Contact_msg(models.Model):
     text = models.CharField('message', max_length=255)
     name = models.CharField(max_length=60)
     phone = models.CharField(max_length=11)
+    seen = models.BooleanField(default=False)
+    create_time = models.DateTimeField(auto_now_add=True)
+
+
+class Message(models.Model):
+
+    sender = models.ForeignKey(User,related_name='send', on_delete=models.CASCADE)
+    receiver = models.ForeignKey(User,related_name='receive', on_delete=models.CASCADE)
+    create_time = models.DateTimeField(auto_now_add=True)
+    text = models.CharField('message', max_length=255)
     seen = models.BooleanField(default=False)

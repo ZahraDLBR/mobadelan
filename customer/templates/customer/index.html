@@ -1,64 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'customer/C_base.html' %}
 {% block title %}
     panel
 {% endblock %}
 
-{% block content%}
 
 
-    <header id="head" class="secondary"></header>
 
-	<!-- container -->
-	<div class="container">
 
+    {% block show %}
 		<ol class="breadcrumb">
 			<li><a href="index.html">Home</a></li>
 			<li class="active">Panel</li>
 		</ol>
-
-		<div class="row">
-
-			<!-- Sidebar -->
-			<aside class="col-md-4 sidebar sidebar-left">
+    {%  endblock %}
 
 
-<ul class="accordion-menu">
-  <li>
-    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> Transactions
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-    </div>
-    <ul class="submenuItems">
-      <li><a href="#">done transactions</a></li>
-      <li><a href="#">waited transactions</a></li>
-      <li><a href="#">failed transactions</a></li>
-      <li><a href="#">all transactions</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> payments
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-    </div>
-    <ul class="submenuItems">
-      <li><a href="#">Fiction book 1</a></li>
-      <li><a href="#">Fiction book 2</a></li>
-      <li><a href="#">Fiction book 3</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> wallet
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-    </div>
-    <ul class="submenuItems">
-      <li><a href="#">charge wallet</a></li>
-    </ul>
-  </li>
 
-</ul>
-
-			</aside>
-			<!-- /Sidebar -->
-
-			<!-- Article main content -->
+        {% block content1 %}<!-- Article main content -->
 			<article class="col-md-8 maincontent">
                 <article class="col-xs-12 maincontent">
 				<header class="page-header">
@@ -69,12 +27,13 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 
-							<form>
-
+							<form method="post" novalidate>
+{% csrf_token %}
+{#                                {{ form }}#}
 								<div class="row top-margin">
 									<div class="col-sm-5 ">
 										<label>Enter your value for convert: </label>
-										<input type="text" class="form-control left-margin">
+										<input  name="unit" type="number" class="form-control left-margin" required {% if amount %} value="{{ number }}" {% else %}value="1" {% endif %}>
 									</div>
 									<div class="col-lg-4 text-right">
 										<button class="btn btn-action btn-lg my" type="submit">convert</button>
@@ -87,39 +46,42 @@
 							<br>
 
 							<center><p>
-								<input type="radio" id="$usa"  name="selector" class="btn btn-default btn-lg" role="button">
+								<input type="radio" value="$usa" id="$usa"  name="selector" class="btn btn-default btn-lg" role="button" {% if not unit  %}checked {% else %}{% if unit == '$usa' %}checked{% endif %}{% endif %}>
    								<label class="btn btn-default btn-lg keder" role="button" for="$usa">$ USA</label>
 
-   								<input type="radio" id="$canada"  name="selector" class="btn btn-default btn-lg" role="button">
+   								<input type="radio" value="$canada" id="$canada"  name="selector" class="btn btn-default btn-lg" role="button" {% if unit == '$canada' %}checked{% endif %}>
    								<label class="btn btn-default btn-lg keder" role="button" for="$canada">$ Canada</label>
 
-   								<input type="radio" id="$australia" name="selector" class="btn btn-default btn-lg" role="button">
+   								<input type="radio" value="$australia" id="$australia" name="selector" class="btn btn-default btn-lg" role="button" {% if unit == '$australia' %}checked{% endif %}>
    								<label class="btn btn-default btn-lg keder" role="button" for="$australia">$ Australia</label>
    							</p></center>
 
 
 
 							<center><p>
-								<input type="radio" id="pound"  name="selector" class="btn btn-default btn-lg " role="button">
+								<input type="radio" value="pound" id="pound"  name="selector" class="btn btn-default btn-lg " role="button" {% if unit == 'pound' %}checked{% endif %}>
    								<label class="btn btn-default btn-lg keder" role="button" for="pound">Pound</label>
 
-   								<input type="radio" id="euro"  name="selector" class="btn btn-default btn-lg" role="button">
+   								<input type="radio" value="euro" id="euro"  name="selector" class="btn btn-default btn-lg" role="button" {% if unit == 'euro' %}checked{% endif %}>
    								<label class="btn btn-default btn-lg keder" role="button" for="euro">Euro</label>
 
-   								<input type="radio" id="Swissfranc"  name="selector" class="btn btn-default btn-lg" role="button">
+   								<input type="radio" value="Swissfranc" id="Swissfranc"  name="selector" class="btn btn-default btn-lg" role="button" {% if unit == 'Swissfranc' %}checked{% endif %}>
    								<label class="btn btn-default btn-lg keder" role="button" for="Swissfranc">Swiss franc</label>
    							</p></center>
 
    							</form>
+
+                            {% if amount %}
 
 <br>
 <hr>
 
 								<div class="row">
 
-							<center><p>  	 <label class="my-label" role="button">MORE INFO </label><a class="btn btn-action btn-lg" role="button">INCREASE WALLET</a></p></center>
+							<center><p>  	 <label class="my-label" role="button">{{ amount }}</label><a class="btn btn-action btn-lg" role="button">RECHARGE WALLET</a></p></center>
 
 						</div>
+                            {%  endif %}
 					</div>
 
 
@@ -130,11 +92,10 @@
 			</article>
 			<!-- /Article -->
 
-		</div>
-	</div>	<!-- /container -->
+	{% endblock %}
 
 
 
-{% endblock %}
+
 
 

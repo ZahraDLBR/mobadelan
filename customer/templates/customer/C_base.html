@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}
+    panel
+{% endblock %}
+
+{% block content%}
+
+
+    <header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container">
+
+    {% block show %}
+
+
+    {%  endblock %}
+
+		<div class="row">
+
+			<!-- Sidebar -->
+			<aside class="col-md-4 sidebar sidebar-left">
+
+
+<ul class="accordion-menu">
+  <li>
+    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> Transactions
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <ul class="submenuItems">
+      <li><a href="#">done transactions</a></li>
+      <li><a href="#">waited transactions</a></li>
+      <li><a href="#">failed transactions</a></li>
+      <li><a href="#">all transactions</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> payments
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <ul class="submenuItems">
+      <li><a href="#">Fiction book 1</a></li>
+      <li><a href="#">Fiction book 2</a></li>
+      <li><a href="#">Fiction book 3</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> wallet
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+    </div>
+    <ul class="submenuItems">
+      <li><a href="#">charge wallet</a></li>
+    </ul>
+  </li>
+
+</ul>
+
+			</aside>
+			<!-- /Sidebar -->
+
+			<!-- Article main content -->
+			{% block content1 %}
+                {% endblock %}
+		</div>
+	</div>	<!-- /container -->
+
+
+
+{% endblock %}
+
+

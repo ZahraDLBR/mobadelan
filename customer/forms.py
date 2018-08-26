@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.hashers import check_password
 from django.db import transaction
 from django.core.exceptions import NON_FIELD_ERRORS
 
@@ -34,4 +35,41 @@ class CustomerSignUpForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CustomerSignUpForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
-            visible.field.widget.attrs['class'] = 'form-control'
+            visible.field.widget.attrs['class']='form-control'
+
+
+class passwordValidationForm(forms.Form):
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop("place_user")
+        self.user = user
+        super(passwordValidationForm, self).__init__(*args, **kwargs)
+
+    password = forms.CharField(
+        label=("Password"),
+        strip=False,
+        widget=forms.PasswordInput(attrs={'class':'form-control'}),
+    )
+
+    error_messages = {
+        'invalid_password': (
+            "Please enter a correct password."
+        ),
+    }
+
+    def clean_password(self):
+        password = self.cleaned_data['password']
+        if check_password(password, self.user.password):
+
+            return password
+        else:
+            raise forms.ValidationError(
+                self.error_messages['invalid_password']
+            )
+
+
+# class Convert_form(forms.Form):
+#     CHOICES = [('select1', 'select 1'),
+#                ('select2', 'select 2')]
+#     avorite_fruit = forms.CharField(label='What is your favorite fruit?',
+#                                     widget=forms.RadioSelect(choices=CHOICES, attrs={'class': 'btn btn-default btn-lg'}))

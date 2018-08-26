@@ -1,63 +1,73 @@
-{% extends 'base.html' %}
+{% extends 'customer/C_base.html' %}
 {% block title %}
     commission
 {% endblock %}
 
-{% block content %}
 
 
-    <header id="head" class="secondary"></header>
 
-	<!-- container -->
-	<div class="container">
-
-		<ol class="breadcrumb">
+    {% block show %}
+            <ol class="breadcrumb">
 			<li><a href="index.html">Home</a></li>
 			<li class="active">Panel</li>
 		</ol>
-
-		<div class="row">
-
-			<!-- Sidebar -->
-			<aside class="col-md-4 sidebar sidebar-left">
+{% endblock %}
 
 
-<ul class="accordion-menu">
-  <li>
-    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> Transactions
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-    </div>
-    <ul class="submenuItems">
-      <li><a href="#">done transactions</a></li>
-      <li><a href="#">waited transactions</a></li>
-      <li><a href="#">failed transactions</a></li>
-      <li><a href="#">all transactions</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> payments
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-    </div>
-    <ul class="submenuItems">
-      <li><a href="#">Fiction book 1</a></li>
-      <li><a href="#">Fiction book 2</a></li>
-      <li><a href="#">Fiction book 3</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="dropdownlink"><i class="fa fa-paper-plane" aria-hidden="true"></i> wallet
-      <i class="fa fa-chevron-down" aria-hidden="true"></i>
-    </div>
-    <ul class="submenuItems">
-      <li><a href="#">charge wallet</a></li>
-    </ul>
-  </li>
+        {% block content1 %}
 
-</ul>
 
-			</aside>
-			<!-- /Sidebar -->
+            <article class="col-md-8 maincontent">
+						<article class="col-xs-12 maincontent">
+				<header class="page-header">
+					<h1 class="page-title"> Commission</h1>
+				</header>
 
-            </div>
-    </div>
+
+					<div class="panel panel-default">
+						<div class="panel-body">
+
+
+                            <div class="row">
+
+                                <center><p> <label>you commission for this transaction is</label> 	 <label class="my-label" role="button">MORE INFO </label></p></center>
+
+						</div>
+
+
+                            <form method="post" novalidate>
+                               {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ next }}">
+                                {% for field in form %}
+
+                                    <div class="col-sm-5 ">
+                                    {{ field.label_tag }}<br>
+                                    {{ field}}
+                                    {% if field.help_text %}
+                                      <small style="color: grey">{{ field.help_text }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                      <p style="color: red">{{ error }}</p>
+                                    {% endfor %}
+                                    </div>
+
+                                {% endfor %}
+                                <div class="col-lg-4 text-right">
+										<button class="btn btn-action btn-lg my" type="submit">continue</button>
+									</div>
+                        </form>
+
+
+
+
+					</div>
+
+
+                        </div>
+
+			</article>
+
+			</article>
+
+
 {% endblock %}

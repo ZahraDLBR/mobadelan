@@ -1,8 +1,14 @@
 from django.contrib.auth import login
+from django.contrib.auth.hashers import check_password
+# from django.core.serializers import json
+from django.db import transaction
+from django.forms import forms
 from django.shortcuts import render, redirect
-from .forms import CustomerSignUpForm
-from django.views.generic import CreateView
-from django.http import HttpResponse
+from django.urls import reverse
+
+from .forms import CustomerSignUpForm, passwordValidationForm
+from django.views.generic import CreateView, FormView
+from django.http import HttpResponse, request
 from django.shortcuts import render, redirect
 # from django.contrib.auth import login, authenticate
 
@@ -13,8 +19,9 @@ from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
 
-from core.models import User
+from core.models import User, Manager, Transaction, Customer
 
+import urllib.request, json
 
 class StudentSignUpView(CreateView):
     model = User
@@ -60,6 +67,93 @@ def activate(request, uidb64, token):
     else:
         return HttpResponse('Activation link is invalid!')
 
+# class indecxView(FormView):
+#     form_class = Convert_form
+#     template_name = 'customer/index.html'
+#
+#     def get_success_url(self):
+#         return HttpResponse("hi")
 def index(request):
 
+    if request.method == 'POST':
+
+        if request.session['getJdata'] == False:
+            with urllib.request.urlopen("http://www.faranevis.com/api/currency") as url:
+                data = json.loads(url.read().decode())
+            request.session['Jdata'] = data
+            request.session['getJdata'] = True
+
+        # response = r('http://www.faranevis.com/api/currency')
+        data = request.session['Jdata']
+        value = {'$usa': data['دلار']['قیمت'], '$canada':data['دلار کانادا']['قیمت'], '$australia':data['دلار استرالیا']['قیمت'],'pound':data['پوند']['قیمت'],
+                 'euro':data['یورو']['قیمت'], 'Swissfranc':data['فرانک سوئیس']['قیمت'],}
+
+
+        number = request.POST.get('unit')
+        print(number)
+        if not number:
+            number = 0
+        unit = value.get(request.POST.get('selector')).replace(',', '')
+
+        return render(request, 'customer/index.html', context={'amount': int(unit) * int(number),'number': number, 'unit':request.POST.get('selector')})
+    request.session['getJdata'] = False
     return render(request, 'customer/index.html', context={'user': request.user})
+
+
+class commissionView(FormView):
+
+    template_name = 'customer/commission.html'
+
+    form_class = passwordValidationForm
+    # success_url = 'tanks/'
+
+
+    #
+    # def get_form_kwargs(self):
+    #     kwargs = super(commissionView, self).get_form_kwargs()
+    #     kwargs.update({'request': self.request})
+    #
+    #    return kwargs
+
+    def get_success_url(self):
+        return reverse('customer:tanks')
+
+
+    def get_form_kwargs(self):
+        kwargs = super(commissionView, self).get_form_kwargs()
+        kwargs.update({"place_user": self.request.user,})
+        return kwargs
+
+    def form_valid(self, form):
+        print("in valid")
+        amount = self.kwargs['amount']
+        type = self.kwargs['type']
+        do_transactions(self.request, amount, type)
+        return super().form_valid(form)
+
+
+
+@transaction.atomic
+def do_transactions(request, amount, type):
+    manager = Manager.objects.get(pk=10)
+    customer = Customer.objects.get(pk=request.user)
+    customer.credit -= amount
+    manager.credit += amount
+    customer.save()
+    manager.save()
+    transaction = Transaction()
+    transaction. value = amount
+    transaction.creator = customer
+    transaction.state ='W'
+    transaction.transactions_type=type
+    transaction.save()
+    request.session['trans_id']= transaction.id
+
+
+def tank(request):
+
+    return HttpResponse(request.session['trans_id'])
+
+#
+# def doTransactions(request):
+#     return None
