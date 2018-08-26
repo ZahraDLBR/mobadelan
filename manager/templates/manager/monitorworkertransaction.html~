@@ -58,8 +58,9 @@
     <li><a href="http://localhost:8000/manager/monitorworker"><i class=""></i> <span>Monitor worker</span></a></li>
      <li><a href="http://localhost:8000/manager/monitoringuser"><i class=""></i> <span>Monitor users</span></a></li>
      <li><a href="http://localhost:8000/manager/managerwallet"><i class=""></i> <span>Wallet</span></a></li>
-     <li><a href="http://localhost:8000/manager/sendnotif/"><i class=""></i> <span>Send notification</span></a></li>
-          <li><a href="http://localhost:8000/manager/connect/"><i class=""></i> <span>Contact</span></a></li>
+     
+                         <li><a href="http://localhost:8000/manager/contacttostaff/"><i class=""></i> <span>Contact with Staff</span></a></li>
+               <li><a href="http://localhost:8000/manager/contacttouser/"><i class=""></i> <span>Contact with Customer</span></a></li>
     
     </li>
 
