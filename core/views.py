@@ -22,9 +22,7 @@ def home(request):
 class ContactView(FormView):
     template_name = 'core/contact.html'
     form_class = ContactForm
-    success_url = 'tanks/'
-
-
+    #success_url = 'tanks/'
     def get_context_data(self, **kwargs):
         kwargs['name'] = "zahra"
         return super().get_context_data(**kwargs)
@@ -33,3 +31,7 @@ class ContactView(FormView):
 def tanks(request):
 
     return HttpResponse("tanks")
+
+def about(request):
+    return render(request,'core/about.html')
+
