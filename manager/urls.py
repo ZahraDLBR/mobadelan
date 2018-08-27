@@ -14,7 +14,9 @@ urlpatterns = [
                           path('monitorworker/', views.monitorworker, name='monitorworker'),
                           path('sendnotif/', views.sendnotif, name='sendnotif'),
                           path('monitoringuser/', views.monitoringuser, name='monitoringuser'),
-                          path('connect/', views.connect, name='connect'),
+                          path('contacttostaff/', views.contacttostaff, name='contacttostaff'),
+
+                          path('contacttouser/', views.contacttouser, name='contacttouser'),
                           path('monitorworker/workersalary/<int:staff_id>', views.workersalary, name='workersalary'),
                           path('monitorworker/monitorworkertransaction/<int:staff_id>', views.monitorworkertransaction,
                                name='monitorworkertransaction'),
@@ -24,7 +26,7 @@ urlpatterns = [
                                views.monitoringusertransaction, name='monitoringusertransaction'),
                           path('monitoringuser/monitoringuserinformation/<int:customer_id>',
                                views.monitoringuserinformation, name='monitoringuserinformation'),
-                          path('monitoringuser/monitorworkerlimitaccess', views.monitorworkerlimitaccess,
+                          path('monitorworker/monitorworkerlimitaccess/<int:staff_id>', views.monitorworkerlimitaccess,
                                name='monitorworkerlimitaccess'),
                           path('monitoringuser/monitoringuserlimitaccess', views.monitoringuserlimitaccess,
                                name='monitoringuserlimitaccess'),
@@ -37,8 +39,7 @@ urlpatterns = [
                           path('monitoringuserban/<int:customer_id>', views.monitoringuserban,
                                name='monitoringuserban'),
                           #
-                          path('parsedropdowntocontact/<int:reciever_id>', views.parsedropdowntocontact,
-                               name='parsedropdowntocontact'),
+
 
 
 

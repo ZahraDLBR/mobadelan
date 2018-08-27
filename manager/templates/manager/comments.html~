@@ -55,8 +55,9 @@
     <li><a href="http://localhost:8000/manager/monitorworker"><i class=""></i> <span>Monitor worker</span></a></li>
     <li><a href="http://localhost:8000/manager/monitoringuser"><i class=""></i> <span>Monitor users</span></a></li>
     <li><a href="http://localhost:8000/manager/managerwallet"><i class=""></i> <span>Wallet</span></a></li>
-    <li><a href="http://localhost:8000/manager/sendnotif/"><i class=""></i> <span>Send notification</span></a></li>
-         <li><a href="http://localhost:8000/manager/connect/"><i class=""></i> <span>Contact</span></a></li>
+
+               <li><a href="http://localhost:8000/manager/contacttostaff/"><i class=""></i> <span>Contact with Staff</span></a></li>
+               <li><a href="http://localhost:8000/manager/contacttouser/"><i class=""></i> <span>Contact with Customer</span></a></li>
 
 
 
@@ -88,7 +89,7 @@
         		 		<li>
                 		<div class="user-thumb"> <img width="40" height="40" alt="User" src="{% static 'assets/img/demo/av1.jpg' %}"> </div>
                			<div class="article-post">
-                		<div class="fr"> <a href="#" class="btn btn-success btn-mini">Answer</a> <a href="{% url 'seencomment' comment.id %}" class="btn btn-danger btn-mini">Seen</a></div>
+                		<div class="fr"> <a href="#" class="btn btn-success btn-mini">Answer</a> <a href="{% url 'manager:seencomment' comment.id %}" class="btn btn-danger btn-mini">Seen</a></div>
                   		<span class="user-info"> By: {{ comment.name}} / Email: {{ comment.email}} / Phone number: {{ comment.phone}} </span>
                   		<p><a href="#">{{ comment.text}}</a> </p>
                			 </div>

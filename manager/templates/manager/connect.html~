@@ -89,24 +89,47 @@
       <div class="widget-content">
         <div class="control-group">
         
+        {% if selected == False}
           <p>
+			
           <div class="btn-group">
             <button class="btn btn-success">
-            {% if selected_staff %}
-            {{ selected_staff.user.username }}
-            
-            {% else %}
-            Staff
-            {% endif %}
+					Staff
             </button>
             <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
+            
             <ul class="dropdown-menu">
             
                   {% if staff_information %}
                  {% for staff in staff_information %}
              
              		
-                  <li><a href="{% url 'manager:parsedropdowntocontactf' staff.user_id %}"  >{{ staff.user.username }}</a></li>
+                  <li><a href="{% url 'manager:parsedropdowntocontact' staff.user_id %}"  >{{ staff.user.username }}</a></li>
+    
+                   {% endfor %}
+                   {% endif %}
+
+             
+             
+            </ul>
+
+              
+          </div>
+        
+          </p>
+          
+            <p>
+
+          <div class="btn-group">
+            <button class="btn btn-success">           
+				User
+            <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                  {% if user_information %}
+                 {% for customer in user_information %}
+             
+             		
+                  <li><a href="{% url 'manager:parsedropdowntocontact' customer.user_id %}"  >{{ customer.user.username }}</a></li>
     
                    {% endfor %}
                    {% endif %}
@@ -117,9 +140,68 @@
 
               
           </div></p>
+          
+          {% else %}
+          
+                    <p>
+			
+          <div class="btn-group">
+            <button class="btn btn-success">
+            	{% if is_staff}
+            		{{staff.user.username}}
+					
+            </button>
+            <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
+            
+            <ul class="dropdown-menu">
+            
+                  {% if staff_information %}
+                 {% for staff in staff_information %}
+             
+             		
+                  <li><a href="{% url 'manager:parsedropdowntocontact' staff.user_id %}"  >{{ staff.user.username }}</a></li>
+    
+                   {% endfor %}
+                   {% endif %}
+
+             
+             
+            </ul>
+
+              
+          </div>
+        
+          </p>
+          
+            <p>
+
+          <div class="btn-group">
+            <button class="btn btn-success">           
+				{% elif is_customer %}
+            <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                  {% if user_information %}
+                 {% for customer in user_information %}
+             
+             		
+                  <li><a href="{% url 'manager:parsedropdowntocontact' customer.user_id %}"  >{{ customer.user.username }}</a></li>
+    
+                   {% endfor %}
+                   {% endif %}
+
+             
+             
+            </ul>
+
+              
+          </div>
+          {% endif %}
+          </p>
+          
+          {% endif %}
               
           
-  
+   
         
           <form>
             <div class="controls">

@@ -22,20 +22,21 @@ def home(request):
 class ContactView(FormView):
     template_name = 'core/contact.html'
     form_class = ContactForm
-    # success_url = 'tanks/'
-
-
-    # def get_success_url(self):
-    #     return render(self.request, 'core/contact.html', context={'msg':("dear "+self.msg.name+" thanks for you message. it will be sent to magner")})
 
     def form_valid(self, form):
         self.msg = form.save()
         return render(self.request, 'core/contact.html',
-                      context={'msg': ("dear " + self.msg.name + " thanks for your message. it will be sent to magner")
-                          , 'form': form})
+                      context={'msg': ("dear " + self.msg.name + " thanks for your message. it will be sent to magner"),'form': form})
 
 
 
 def tanks(request):
 
     return HttpResponse("tanks")
+
+def about(request):
+    return render(request,'core/about.html')
+
+def arz(request):
+    return render(request,'core/arz.html')    
+
