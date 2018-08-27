@@ -1,0 +1,37 @@
+<script type="text/javascript">
+function Confirm(form){
+alert("پیام با موفقیت ارسال شد!"); 
+form.submit();
+}
+</script>
+<form action="Mainpage.htm">
+  <div class="container">
+<h1>ارتباط</h1>
+
+
+    <textarea id=“connectfromworkeranswer” name=“answer” placeholder="Write something.." style="height:250px"></textarea>
+    
+
+    <label>
+      <input id=“connectfromworkercheckbox” type="checkbox" checked="checked" name=“manager” style="margin-bottom:15px"> مدیر
+    </label>
+
+
+    <p><label for=“کاربران”><b>کاربران</b></label>
+<select id=“connectfromworkerdropdown”>
+  <option value=“saghaie”>سقایی</option>
+  <option value=“zargarzadeh”>زرگرزاده</option>
+  <option value=“delbari”>دلبری</option>
+<option value=“delbari”>همه کاربران</option>
+</select>
+
+
+<p><input type="submit" value="Submit" onClick="Confirm(this.form)"></p>
+<a href=Mainpage.htm> <p><button type="button">نظارت بر تراکنش‌ها</button></p> </a>
+
+    </div>
+  </div>
+</form>
+
+
+

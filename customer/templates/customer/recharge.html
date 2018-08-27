@@ -34,7 +34,7 @@
                                         <label> enter amount you want to recharge wallet.<P><small style="color: grey"> you must enter a value equals or more than 10000  Rials.</small></P></label>
 									</div>
 									<div class="col-sm-6">
-										<input name=amount type="number"  class="form-control" {% if amount %}value="{{ amount }}"{% endif %}>
+										<input id = "walletvalue" name=amount type="number"  class="form-control" {% if amount %}value="{{ amount }}"{% endif %}>
 									     <p style="color: red">{{ error }}</p>
                                     </div>
 								</div>
@@ -44,7 +44,7 @@
 								<div class="row">
 
 									<div class="col-lg-4 text-right">
-										<button class="btn btn-action btn-lg" type="submit">Register</button>
+										<button id="submitbtn" class="btn btn-action btn-lg" type="submit">Register</button>
 										</div>
 								</div>
 

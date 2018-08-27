@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Privacy Policy</h1>
+
+<p>policies:</p>
+
+      	I Agree: <input type="checkbox" id="myCheck" onclick="myFunction()">
+		<a href=signupform.htm> <p><button style="display:none" id="submitBtn" type="button">Next</button><p> 
+      	<a href=Mainpage.htm> <p><button   id = "cancelBtn"type="button" class="cancelbtn">Cancel</button><p>
+
+<!--  -->
+<!-- <p id="text" style="display:none">Checkbox is CHECKED!</p> -->
+
+<script>
+function myFunction() {
+    var checkBox = document.getElementById("myCheck");
+    var submitBtn = document.getElementById("submitBtn");
+    if (checkBox.checked == true){
+        submitBtn.style.display = "block";
+    } else {
+       submitBtn.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html

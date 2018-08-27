@@ -1,0 +1,51 @@
+<script type="text/javascript">
+function Confirm(form){
+alert("ایجاد حساب کاربری با موفقیت انجام شد!"); 
+form.submit();
+}
+</script>
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Sign Up</h1>
+<div class="container">
+  <form action="userpage.htm">
+
+
+
+
+    <p><label for=“name”><b>Name</b></label>
+    <input id = “signupformname” type="text" placeholder="Enter your name" name="name" required></p>
+
+
+<p><label for=“bank account”><b>Bank Account Number</b></label>
+    <input id=“signupformbankacount” type="bank account" placeholder="Enter bank account" name="bank account" required></p>
+
+<p><label for="email"><b>Email</b></label>
+    <input id=“signupformemail” type="email" placeholder="Enter Email" name="email" required></p>
+
+<p><label for=“phone number”><b>Phone Number</b></label>
+    <input id=“signupformphonenumber”type=“phone number” placeholder="Enter phone number" name="phone number" required></p>
+    
+<p><label for="repeat"><b>Password</b></label>
+    <input id=“signupformpassword” type="password" placeholder="Password" name="repeat" required></p>
+
+    <p><label for="psw-repeat"><b>Repeat Password</b></label>
+    <input id=“signupformrepassword” type="password" placeholder="Repeat Password" name="psw-repeat" required></p>
+
+    <label>
+      <input id=“signupformcheckbox” type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+	
+	 
+      <p><input id ="submit" type="submit" value="Submit" onClick="Confirm(this.form)"></p>
+
+    <div class="clearfix">
+      <a href=Mainpage.htm> <p><button type="button" class="cancelbtn">Cancel</button><p>
+
+
+  </form>
+</div>
+</body>
+</html

@@ -44,6 +44,14 @@ class passwordValidationForm(forms.Form):
         user = kwargs.pop("place_user")
         self.user = user
         super(passwordValidationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].widget = TextInput(attrs={'id':usernameid})
+        self.fields['first_name'].widget = TextInput(attrs={'id':first_nameid})
+        self.fields['last_name'].widget = TextInput(attrs={'id':last_nameid})
+        self.fields['email'].widget = TextInput(attrs={'id':emailid})
+        self.fields['phone_number'].widget = TextInput(attrs={'id':phone_numberid})
+        self.fields['bank_account_number'].widget = TextInput(attrs={'id':bank_account_numberid})
+        self.fields['password'].widget = TextInput(attrs={'id':passwordid})
+
 
     password = forms.CharField(
         label=("Password"),

@@ -1,0 +1,33 @@
+<script type="text/javascript">
+function Confirm(form){
+alert("ورود شما موفقیت انجام شد!"); 
+form.submit();
+}
+</script>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Sign In</h1>
+<div class="container">
+  <form action="managerpanel.htm">
+
+    <p><label for="name">User</label>
+    <input id=“signininput” type="text" id=“user” name=“user” placeholder=""></p>
+
+
+    <p><label for=“password”>Password</label>
+    <input id=“signinpassword” type="password" name=“password” placeholder=""></p>
+    
+
+<p><input type="submit" value="Submit" onClick="Confirm(this.form)"></p>
+
+    <div class="clearfix">
+      <a href=Mainpage.htm> <p><button type="button" class="cancelbtn" >Cancel</button><p>
+
+  </form>
+</div>
+</body>
+</html

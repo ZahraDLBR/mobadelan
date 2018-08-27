@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>commiossion</title>
+	<script type="text/javascript">
+function Confirm(form){
+alert("تراکنش با موفقیت انجام شد!"); 
+form.submit();
+}
+</script>
+</head>
+<body>
+
+<form  action="receipt">
+	
+
+	<p><label for="transactioncommission"><b>commission for this transaction is: </b></label>
+	    <label id=“commission”  name="transactioncommission" ></label></p>
+
+<p><label id= "totlaValue"><b>totla value for this transaction is: </b></label>
+	<p><label for="repeat"><b>Password</b></label>
+	    <input id=“password” type="password" placeholder="Password" name="repeat" required></p>
+
+	    <p><input id="submitBtn" type="submit" value="Submit" onClick="Confirm(this.form)"></p>
+
+  	<a href=payement.htm> <p><button type="button" class="cancelbtn">Cancel</button><p>
+
+</form>
+
+
+</body>
+</html>

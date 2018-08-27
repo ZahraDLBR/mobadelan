@@ -1,0 +1,39 @@
+<script type="text/javascript">
+function Confirm(form){
+alert("پیام شما با موفقیت ارسال شد!"); 
+form.submit();
+}
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Contact Us</h1>
+<div class="container">
+  <form action="Mainpage.htm">
+
+    <p><label for="name">Name</label>
+    <input id=“contactusname” type="text" id="name" name="name" placeholder=""></p>
+
+
+    <p><label for=“email”>E-mail</label>
+    <input id=“contactusemail” type="text" id="email" name=“email” placeholder=""></p>
+    
+    <p><label for=“phone number”>Phone Number</label>
+    <input id=“contactusphonenumber” type="text" id=“phone number” name=“phone number” placeholder=""></p>
+
+
+
+    <label for="subject">Subject</label>
+    <textarea id=“contactussubject" name="subject" placeholder="Write something.." style="height:250px"></textarea>
+
+    <p><input type="submit" value="Submit" onClick="Confirm(this.form)"></p>
+
+    <div class="clearfix">
+      <a href=Mainpage.htm> <p><button type="button" class="cancelbtn">بازگشت</button><p>
+
+  </form>
+</div>
+</body>
+</html
