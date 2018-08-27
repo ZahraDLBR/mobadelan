@@ -22,12 +22,18 @@ def home(request):
 class ContactView(FormView):
     template_name = 'core/contact.html'
     form_class = ContactForm
-    success_url = 'tanks/'
+    # success_url = 'tanks/'
 
 
-    def get_context_data(self, **kwargs):
-        kwargs['name'] = "zahra"
-        return super().get_context_data(**kwargs)
+    # def get_success_url(self):
+    #     return render(self.request, 'core/contact.html', context={'msg':("dear "+self.msg.name+" thanks for you message. it will be sent to magner")})
+
+    def form_valid(self, form):
+        self.msg = form.save()
+        return render(self.request, 'core/contact.html',
+                      context={'msg': ("dear " + self.msg.name + " thanks for your message. it will be sent to magner")
+                          , 'form': form})
+
 
 
 def tanks(request):

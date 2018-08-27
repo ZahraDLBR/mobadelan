@@ -10,7 +10,9 @@ urlpatterns = [
         path('signup/', views.StudentSignUpView.as_view(), name='signup'),
         path('commission/<int:amount>/<str:type>', views.commissionView.as_view(), name='commission'),
         # path('transaction/', views.doTransactions, name='transaction'),
-        path('commission/tanks/', views.tank, name='tanks')
+        path('commission/thanks/', views.thank, name='thanks'),
+        path('recharge/', views.recharge, name='recharge'),
+        path('recharge/<int:amount>', views.rechargeWithDefault, name='rechargeWithDefault'),
 
 
 

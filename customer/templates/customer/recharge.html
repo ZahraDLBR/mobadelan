@@ -1,0 +1,64 @@
+{% extends 'customer/C_base.html' %}
+{% block title %}
+    tanks page
+{% endblock %}
+
+{% block show %}
+    <ol class="breadcrumb" xmlns="http://www.w3.org/1999/html">
+			<li><a href="index.html">Home</a></li>
+			<li class="active">recharge</li>
+
+		</ol>
+{% endblock %}
+
+
+
+{% block content1 %}
+    <article class="col-md-8 maincontent">
+                <article class="col-xs-12 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Recharge</h1>
+				</header>
+
+
+					<div class="panel panel-default">
+						<div class="panel-body">
+
+
+
+
+                            <form action="{% url 'customer:recharge' %}" method="post">
+                            {% csrf_token %}
+								<div class="row top-margin">
+									<div class="col-sm-6">
+                                        <label> enter amount you want to recharge wallet.<P><small style="color: grey"> you must enter a value equals or more than 10000  Rials.</small></P></label>
+									</div>
+									<div class="col-sm-6">
+										<input name=amount type="number"  class="form-control" {% if amount %}value="{{ amount }}"{% endif %}>
+									     <p style="color: red">{{ error }}</p>
+                                    </div>
+								</div>
+
+								<hr>
+
+								<div class="row">
+
+									<div class="col-lg-4 text-right">
+										<button class="btn btn-action btn-lg" type="submit">Register</button>
+										</div>
+								</div>
+
+
+
+                    </form>
+
+					</div>
+
+
+                    </div>
+
+			    </article>
+
+			</article>
+			<!-- /Article -->
+{% endblock %}

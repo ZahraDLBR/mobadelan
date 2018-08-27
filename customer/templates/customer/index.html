@@ -34,7 +34,10 @@
 									<div class="col-sm-5 ">
 										<label>Enter your value for convert: </label>
 										<input  name="unit" type="number" class="form-control left-margin" required {% if amount %} value="{{ number }}" {% else %}value="1" {% endif %}>
-									</div>
+									    {% if error  %}
+                                      <p style="color: red">{{ error }}</p>
+                                    {% endif %}
+                                    </div>
 									<div class="col-lg-4 text-right">
 										<button class="btn btn-action btn-lg my" type="submit">convert</button>
 									</div>
@@ -78,7 +81,7 @@
 
 								<div class="row">
 
-							<center><p>  	 <label class="my-label" role="button">{{ amount }}</label><a class="btn btn-action btn-lg" role="button">RECHARGE WALLET</a></p></center>
+							<center><p>  	 <label class="my-label" role="button">{{ amount }}</label><a href="{% url 'customer:rechargeWithDefault' amount %}" class="btn btn-action btn-lg" role="button">RECHARGE WALLET</a></p></center>
 
 						</div>
                             {%  endif %}

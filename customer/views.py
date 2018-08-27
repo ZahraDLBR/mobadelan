@@ -89,9 +89,8 @@ def index(request):
                  'euro':data['یورو']['قیمت'], 'Swissfranc':data['فرانک سوئیس']['قیمت'],}
 
 
-        number = request.POST.get('unit')
-        print(number)
-        if not number:
+        number = int(request.POST.get('unit'))
+        if  number <= 0:
             number = 0
         unit = value.get(request.POST.get('selector')).replace(',', '')
 
@@ -116,7 +115,7 @@ class commissionView(FormView):
     #    return kwargs
 
     def get_success_url(self):
-        return reverse('customer:tanks')
+        return reverse('customer:thanks')
 
 
     def get_form_kwargs(self):
@@ -150,10 +149,40 @@ def do_transactions(request, amount, type):
     request.session['trans_id']= transaction.id
 
 
-def tank(request):
+def thank(request):
 
     return HttpResponse(request.session['trans_id'])
 
-#
-# def doTransactions(request):
-#     return None
+
+@transaction.atomic()
+def make_transaction(request, amount):
+    customer = Customer.objects.get(pk=request.user.id)
+    customer.credit += amount
+    transaction = Transaction()
+    transaction.value = amount
+    transaction.state = "D"
+    transaction.transactions_type = "RCH"
+    transaction.creator = customer
+    customer.save()
+    transaction.save()
+    return transaction
+
+
+
+
+def recharge(request):
+    if request.method == "POST":
+        amount = request.POST.get('amount')
+        amount = int(amount)
+        if(amount < 10000):
+            error = "pleas enter a value equals or more than 10000 Rials"
+            return render(request, 'customer/recharge.html', context={'error':error})
+
+        transaction = make_transaction(request, amount)
+        return render(request, 'customer/success.html', context={'transaction':transaction})
+
+    return render(request,'customer/recharge.html', None)
+
+
+def rechargeWithDefault(request, amount):
+    return render(request,'customer/recharge.html', context={'amount':amount})
