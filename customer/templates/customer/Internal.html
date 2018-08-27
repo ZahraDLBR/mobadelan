@@ -1,0 +1,46 @@
+{% extends 'customer/C_base.html' %}
+{% block title %}
+    internal
+{% endblock %}
+
+{% block show %}
+            <ol class="breadcrumb">
+			<li><a href="index.html">Home</a></li>
+			<li class="active">payment</li>
+
+		</ol>
+{% endblock %}
+
+
+
+{% block content1 %}
+
+
+
+<div class="row top-margin">
+									<div class="col-sm-6">
+										<label>amount<span class="text-danger">*</span></label>
+										<input type="number" class="form-control">
+									</div>
+									<div class="col-sm-6">
+										<label> bank account number</label>
+										<input type="text" class="form-control">
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="row">
+									<div class="col-lg-8">
+										<label class="checkbox">
+											<input type="checkbox">
+
+										</label>
+									</div>
+									<div class="col-lg-4 text-right">
+										<button class="btn btn-action" type="submit">continue</button>
+									</div>
+								</div>
+{% endblock %}
+
+

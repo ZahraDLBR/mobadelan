@@ -174,8 +174,8 @@ def recharge(request):
     if request.method == "POST":
         amount = request.POST.get('amount')
         amount = int(amount)
-        if(amount < 10000):
-            error = "pleas enter a value equals or more than 10000 Rials"
+        if(amount < 10000 or amount > 10000000):
+            error = "please enter a value equals or more than 10'000 Rials and equals or less than 10'000'000"
             return render(request, 'customer/recharge.html', context={'error':error})
 
         transaction = make_transaction(request, amount)

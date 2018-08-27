@@ -1,23 +1,23 @@
 {% extends 'customer/C_base.html' %}
 {% block title %}
-    tanks page
+    payment
 {% endblock %}
 
 {% block show %}
-    <ol class="breadcrumb" xmlns="http://www.w3.org/1999/html">
+            <ol class="breadcrumb">
 			<li><a href="index.html">Home</a></li>
-			<li class="active">recharge</li>
-
+			<li class="active">payment</li>
 		</ol>
 {% endblock %}
 
 
 
 {% block content1 %}
-    <article class="col-md-8 maincontent">
+
+<article class="col-md-8 maincontent">
                 <article class="col-xs-12 maincontent">
 				<header class="page-header">
-					<h1 class="page-title">Recharge</h1>
+					<h1 class="page-title">University tuition</h1>
 				</header>
 
 
@@ -31,10 +31,10 @@
                             {% csrf_token %}
 								<div class="row top-margin">
 									<div class="col-sm-6">
-                                        <label> enter amount you want to recharge wallet.<P><small style="color: grey"> you must enter a value equals or more than 10'000  Rials and equals or less than 10'000'000.</small></P></label>
+                                        <label> enter tuition</label>
 									</div>
 									<div class="col-sm-6">
-										<input name=amount type="number"  class="form-control" {% if amount %}value="{{ amount }}"{% endif %}>
+										<input name=amount type="number"  class="form-control" >
 									     <p style="color: red">{{ error }}</p>
                                     </div>
 								</div>
